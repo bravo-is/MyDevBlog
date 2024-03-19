@@ -3,12 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "Home Page";
 ---
 
-<BaseLayout>
-	<meta slot="head" charset="utf-8" />
-	<link slot="head" rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<meta slot="head" name="viewport" content="width=device-width" />
-	<meta slot="head" name="generator" content={Astro.generator} />
-	<title slot="head">"Home Page"</title>	
+<BaseLayout pageTitle={pageTitle}>
 	<link slot="head" rel="preconnect" href="https://fonts.googleapis.com">
 	<link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link slot="head" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
