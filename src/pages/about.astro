@@ -5,10 +5,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle:string = "About Me";
 
 const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+  firstName: "Israel",
+  country: "USA",
+  occupation: "Software Engineer",
+  hobbiesAndInterests: ["Running", "Philosphy", "baseball"],
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
@@ -25,17 +25,18 @@ const textCase = "uppercase";
 <BaseLayout pageTitle={pageTitle}>
 
 	<h1>{pageTitle}</h1>
-	<h2>... and my new Astro site!</h2>
+	<h2>Software Engineer with a Passion for Learning</h2>
 	
-	<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+	<p>Hello! My name is {identity.firstName} and I am a Software Engineer. I have a deep passion for learning new technologies and improving my skills. I believe that continuous learning is the key to personal and professional growth.</p>
 	
-	<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-	<p>Here are a few facts about me:</p>
+	<p>Besides my interest in technology, I also have a keen interest in Philosophy. I find it fascinating to explore fundamental questions about existence, reality, and knowledge. It helps me to think critically and understand different perspectives.</p>
+	
+	<p>Here are a few more facts about me:</p>
 	<ul>
-		<li>My name is {identity.firstName}.</li>
-		<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-		{identity.hobbies.length >= 2 && 
-		<li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+		<li>I live in {identity.country}.</li>
+		<li>Currently, I work as a {identity.occupation}.</li>
+		{identity.hobbiesAndInterests.length >= 2 && 
+		<li>Two of my hobbies and interests are: {identity.hobbiesAndInterests[0]} and {identity.hobbiesAndInterests[1]}</li>
 		} 
 	</ul>
 	<p>My skills are:</p>

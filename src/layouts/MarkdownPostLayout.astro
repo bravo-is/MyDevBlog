@@ -8,5 +8,8 @@ import BaseLayout from "./BaseLayout.astro";
 <p>Written by {frontmatter.author}</p>
 <p><em>{frontmatter.description}</em></p>
 <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+<div class="flex-wrap">
+    {frontmatter.tags.map((tag) => (<p class="tag m-1 border-dotted border border-gray-400 rounded-full px-4 py-2 text-lg bg-blue-100"><a href={`/tags/${tag}`}>{tag}</a></p>))}
+</div>
 <slot />
 </BaseLayout>
