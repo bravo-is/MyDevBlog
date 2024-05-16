@@ -81,10 +81,10 @@ h1 {
 }
 
 html.dark {
-    background-color: #0d0950;
+    background-color: #2c2c2c;
     color: #fff;
-  }
+}
   
-  .dark .nav-links a {
+.dark .nav-links a {
     color: #fff;
-  }
+}
