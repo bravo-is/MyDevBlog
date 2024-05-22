@@ -1,21 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function Greeting({ greetings }: { greetings: string[] }) {
     function getRandomIndex(): number {return Math.floor(Math.random() * greetings.length)};
-    const [currentGreeting, setCurrentGreeting] = useState(greetings[getRandomIndex()]);
+    const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getRandomGreeting();
+        }, 3000); // Change every 3 seconds
+
+        // Cleanup function to clear the interval when the component unmounts
+        return () => clearInterval(interval);
+    }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
     function getRandomGreeting():void {
-        const randomIndex = Math.floor(getRandomIndex());
+        const randomIndex = getRandomIndex();
         setCurrentGreeting(greetings[randomIndex]);
     };
 
     return (
-        <div>
-            <h3>{currentGreeting}! Thank you for visiting!</h3>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getRandomGreeting}>New Greeting</button>
-        </div>
+        <motion.div 
+            key={currentGreeting}
+            initial={{ opacity: 0, x: -100}} 
+            animate={{ opacity: 1, x: 0}} 
+            transition={{ type: "spring", duration: 1}}
+        >
+            {currentGreeting}!
+        </motion.div>
     );
 };
-
 
 export default Greeting;
