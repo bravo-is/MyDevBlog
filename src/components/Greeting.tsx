@@ -2,31 +2,35 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 function Greeting({ greetings }: { greetings: string[] }) {
-    function getRandomIndex(): number {return Math.floor(Math.random() * greetings.length)};
-    const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
+    const [currentGreetingIndex, setCurrentGreeting] = useState(0);
+    
+    function getNextGreetingIndex():void {
+        const nextIndex = currentGreetingIndex + 1;
+        console.log(nextIndex);
+        if (nextIndex >= greetings.length) {
+            setCurrentGreeting(0);
+            return;
+        }
+        setCurrentGreeting(currentGreetingIndex+1);
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
-            getRandomGreeting();
+            getNextGreetingIndex();
         }, 3000); // Change every 3 seconds
 
         // Cleanup function to clear the interval when the component unmounts
         return () => clearInterval(interval);
-    }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
-
-    function getRandomGreeting():void {
-        const randomIndex = getRandomIndex();
-        setCurrentGreeting(greetings[randomIndex]);
-    };
+    }, [currentGreetingIndex]); // Add currentGreetingIndex to the dependency array
 
     return (
         <motion.div 
-            key={currentGreeting}
+            key={currentGreetingIndex}
             initial={{ opacity: 0, x: -100}} 
             animate={{ opacity: 1, x: 0}} 
             transition={{ type: "spring", duration: 1}}
         >
-            {currentGreeting}!
+            {greetings[currentGreetingIndex]}!
         </motion.div>
     );
 };
