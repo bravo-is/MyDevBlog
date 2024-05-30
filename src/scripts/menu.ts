@@ -3,7 +3,7 @@ if (hamburger) {
   hamburger.addEventListener('click', () => {
     const navLinks = document.querySelector('.nav-links');
     if (navLinks) {
-      navLinks.classList.toggle('expanded');
+      navLinks.classList.toggle('hidden');
     }
   });
 }
