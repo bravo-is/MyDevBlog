@@ -36,7 +36,7 @@
       document.documentElement.classList.add('dark');
     }
   
-    window.localStorage.setItem('theme', theme);
+    window.localStorage.setItem('theme', theme ?? "light");
   
     const handleToggleClick = () => {
       const element = document.documentElement;
