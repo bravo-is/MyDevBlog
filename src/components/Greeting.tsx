@@ -6,7 +6,6 @@ function Greeting({ greetings }: { greetings: string[] }) {
     
     function getNextGreetingIndex():void {
         const nextIndex = currentGreetingIndex + 1;
-        console.log(nextIndex);
         if (nextIndex >= greetings.length) {
             setCurrentGreeting(0);
             return;

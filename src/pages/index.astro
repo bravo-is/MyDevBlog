@@ -8,14 +8,8 @@ const pageTitle = "Home Page";
 	<link slot="head" rel="preconnect" href="https://fonts.googleapis.com">
 	<link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link slot="head" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
-	<link slot="head" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-	<h1>
-		<span style="font-family: 'Bagel Fat One', cursive; font-size: 1.5em;">
-			<Greeting client:load greetings={["Hi", "Hello", "Howdy", "Hey there", "Hola", "Konnichiwa"]} /> I'm <span style="color:#8ECAE6">Israel</span>. Welcome to my corner of the internet.
-		</span>
-		<span style="font-family: 'Noto Color Emoji', sans-serif; font-size: 1.5em;">
-			🤠
-		</span>
+	<h1 class="my-4 text-6xl leading-normal" style="font-family: 'Bagel Fat One', cursive;">
+		<Greeting client:load greetings={["Hi", "Hello", "Howdy", "Hey there", "Hola", "Konnichiwa"]} /> I'm <span style="color:#8ECAE6">Israel</span>. Welcome to my corner of the internet. 🤠
 	</h1>
 	<img class="rounded-md" src="/self.JPEG" alt="Self Image" />
 </BaseLayout>

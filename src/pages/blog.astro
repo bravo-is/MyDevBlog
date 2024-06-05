@@ -7,7 +7,7 @@ const pageTitle:string = "My Astro Learning Blog"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h1>{pageTitle}</h1>
+	<h1 class="my-4 text-4xl">{pageTitle}</h1>
 	<p>This is where I will post about my journey learning Astro.</p>
 	<ul>
 		{allPosts.map((post)=><Blogpost url={post.url} title={post.frontmatter.title}>
