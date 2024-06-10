@@ -1,7 +1,6 @@
 ---
-layout: "../../layouts/MarkdownPostLayout.astro"
 title: "My Second Blog Post"
-pubDate: "2022-07-08"
+pubDate: 2022-07-08
 author: "Israel Bravo"
 description: "After learning some Astro, I couldn't stop!"
 image: 
