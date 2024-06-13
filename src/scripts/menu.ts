@@ -1,9 +1,11 @@
-const hamburger = document.querySelector('.hamburger');
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
-      navLinks.classList.toggle('hidden');
-    }
-  });
-}
+document.addEventListener('astro:page-load', () => {
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks) {
+        navLinks.classList.toggle('hidden');
+      }
+    });
+  }
+});
