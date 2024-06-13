@@ -18,9 +18,9 @@ const {pageTitle} = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body class="bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white font-sans my-0 mx-auto w-full max-w-3xl p-4 leading-relaxed">
-		<Header />
+		<Header transition:persist/>
 		<slot />
-		<Footer />
+		<Footer transition:persist/>
 	<script>
 		import '../scripts/menu.ts';
 	</script>
