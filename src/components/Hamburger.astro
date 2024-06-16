@@ -1,7 +1,27 @@
 ---
 ---
-<div class="hamburger pr-5 cursor-pointer sm:hidden">
-    <span class="block w-10 h-1 mb-2 bg-orange-600"></span>
-    <span class="block w-10 h-1 mb-2  bg-orange-600"></span>
-    <span class="block w-10 h-1 mb-2  bg-orange-600"></span>
+<div class="menu pr-5 cursor-pointer sm:hidden">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hamburger size-10 text-orange-600">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+    </svg>
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close hidden size-10 text-orange-600">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>            
 </div>
+
+<script>
+    document.querySelector('.menu')?.addEventListener('click', function() {
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks) {
+            navLinks.classList.toggle('hidden');
+        }
+        const hamburger = document.querySelector('.hamburger');
+        if (hamburger) {
+            hamburger.classList.toggle('hidden');
+        }
+        const close = document.querySelector('.close');
+        if (close) {
+            close.classList.toggle('hidden');
+        }
+    });
+</script>
