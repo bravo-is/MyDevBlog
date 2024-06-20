@@ -10,18 +10,20 @@
 </div>
 
 <script>
-    document.querySelector('.menu')?.addEventListener('click', function() {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            navLinks.classList.toggle('hidden');
-        }
-        const hamburger = document.querySelector('.hamburger');
-        if (hamburger) {
-            hamburger.classList.toggle('hidden');
-        }
-        const close = document.querySelector('.close');
-        if (close) {
-            close.classList.toggle('hidden');
-        }
+    document.addEventListener('astro:page-load', () => {
+        document.querySelector('.menu')?.addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('hidden');
+            }
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                hamburger.classList.toggle('hidden');
+            }
+            const close = document.querySelector('.close');
+            if (close) {
+                close.classList.toggle('hidden');
+            }
+        });
     });
 </script>

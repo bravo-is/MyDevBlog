@@ -13,11 +13,14 @@ const {pageTitle} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link slot="head" rel="preconnect" href="https://fonts.googleapis.com">
+		<link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 		<slot name="head" />
 		<title>{pageTitle}</title>
 		<ViewTransitions />
 	</head>
-	<body class="bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white font-sans my-0 mx-auto w-full max-w-3xl p-4 leading-relaxed">
+	<body class="bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white my-0 mx-auto w-full max-w-3xl p-4 leading-relaxed" style="font-family: 'Roboto Slab';">
 		<Header transition:persist/>
 		<slot />
 		<Footer transition:persist/>
