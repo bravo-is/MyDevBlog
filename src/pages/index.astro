@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
 const pageTitle = "Home Page";
+const wavyBackground = "bg-[url('/wavesBackgroundLight.svg')] dark:bg-[url('/wavesBackgroundDark.svg')]"
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} customBodyStyle={wavyBackground}>
 	<link slot="head" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
 	<h1 class="my-4 text-6xl leading-normal" style="font-family: 'Bagel Fat One', cursive;">
 		<Greeting client:load greetings={["Hi", "Hello", "Howdy", "Hey there", "Hola", "Konnichiwa"]} /> I'm <span style="color:#8ECAE6">Israel</span>. Welcome to my corner of the internet. 🤠
