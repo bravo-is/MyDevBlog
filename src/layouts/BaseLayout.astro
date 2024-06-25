@@ -20,7 +20,7 @@ const {pageTitle, customBodyStyle} = Astro.props;
 		<title>{pageTitle}</title>
 		<ViewTransitions />
 	</head>
-	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white my-0 mx-auto w-full max-w-3xl p-4 leading-relaxed", customBodyStyle]} style="font-family: 'Roboto Slab'; background-size: cover; background-position: center;"></body>
+	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white relative mx-auto w-full max-w-3xl p-4 leading-relaxed", customBodyStyle]} style="font-family: 'Roboto Slab'; background-size: cover; background-position: center;"></body>
 		<Header transition:persist/>
 		<slot />
 		<Footer transition:persist/>
