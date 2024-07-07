@@ -4,12 +4,29 @@ import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 
-<header class=" sm:relative sticky top-0 z-50 rounded-md sm:bg-transparent bg-neutral-200 sm:dark:bg-transparent dark:bg-neutral-700">
+<header id="main-header"  class="sm:static sticky top-0 z-50 rounded-md sm:bg-transparent bg-neutral-200 sm:dark:bg-transparent dark:bg-neutral-700">
     <nav>
-        <div class="flex justify-between">
+        <div class="flex justify-between px-2">
             <ThemeIcon />
+            <p>Israel Bravo</p>
             <Hamburger />
         </div>
         <Navigation />
     </nav>
 </header>
+
+<script>
+    // This script adds a scroll event listener to the window and updates the CSS classes of the main header element based on the scroll position.
+    document.addEventListener('astro:page-load', () => {
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) { // Adjust the scroll threshold as needed
+            header?.classList.add('-mx-4');
+            header?.classList.remove('rounded-md');
+            } else {
+            header?.classList.remove('-mx-4');
+            header?.classList.add('rounded-md');
+            }
+        });
+    });
+</script>
