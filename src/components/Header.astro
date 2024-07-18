@@ -4,9 +4,9 @@ import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 
-<header id="main-header"  class="sm:static sticky top-0 z-50 rounded-md sm:bg-transparent bg-neutral-200 sm:dark:bg-transparent dark:bg-neutral-700">
+<header id="main-header"  class="sm:relative sticky top-0 z-50 sm:rounded-md rounded-md sm:-mx-0 bg-neutral-200 dark:bg-neutral-700">
     <nav>
-        <div class="flex justify-between px-2">
+        <div class="flex justify-between p-2">
             <ThemeIcon />
             <p>Israel Bravo</p>
             <Hamburger />
@@ -21,8 +21,8 @@ import ThemeIcon from './ThemeIcon.astro';
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) { // Adjust the scroll threshold as needed
-            header?.classList.add('-mx-4');
-            header?.classList.remove('rounded-md');
+            header?.classList.add('-mx-4'); // Cover the horizontal padding
+            header?.classList.remove('rounded-md'); // Remove the rounded corners
             } else {
             header?.classList.remove('-mx-4');
             header?.classList.add('rounded-md');
