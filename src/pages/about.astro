@@ -1,51 +1,75 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProgressBar from '../components/ProgressBar';
 
-const pageTitle:string = "About Me";
+const pageTitle:string = "Who am I?";
+const lastUpdated:string = "18-Jul-2024";
 
-const identity = {
-  firstName: "Israel",
-  country: "USA",
-  occupation: "Software Engineer",
-  hobbiesAndInterests: ["Running", "Philosphy", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 
+	<div class="sm:hidden sticky top-14 -mx-4 z-10">
+		<ProgressBar client:load/>
+	</div>
 	<h1 class="my-4 text-4xl">{pageTitle}</h1>
-	<h2>Software Engineer with a Passion for Learning</h2>
-	
-	<p>Hello! My name is {identity.firstName} and I am a Software Engineer. I have a deep passion for learning new technologies and improving my skills. I believe that continuous learning is the key to personal and professional growth.</p>
-	
-	<p>Besides my interest in technology, I also have a keen interest in Philosophy. I find it fascinating to explore fundamental questions about existence, reality, and knowledge. It helps me to think critically and understand different perspectives.</p>
-	
-	<p>Here are a few more facts about me:</p>
-	<ul>
-		<li>I live in {identity.country}.</li>
-		<li>Currently, I work as a {identity.occupation}.</li>
-		{identity.hobbiesAndInterests.length >= 2 && 
-		<li>Two of my hobbies and interests are: {identity.hobbiesAndInterests[0]} and {identity.hobbiesAndInterests[1]}</li>
-		} 
-	</ul>
-	<p>My skills are:</p>
-	<ul>
-		{skills.map((skill) => <li class="skill">{skill}</li>)}
-	</ul>
-	{happy && <p>I am happy to be learning Astro!</p>}
+	<hr>
+	<p class="font-mono">Updated on {lastUpdated}</p>
+	<hr>
+	<h2 class="my-2 text-2xl">For the professionals:</h2>
+	<p>
+		Hello, my name is Israel Bravo and I'm a University of Cincinnati graduate with a Bachelor's degree in Computer Science. 
+		I have experience in embedded development, full-stack web development, build systems, and the software lifecycle. 
+		I'm currently working as a Software Engineer at SIEMENS where I have a variety of responsibilities.
+		I'm passionate about learning and mastering my skills, and I'm always looking for new opportunities to aid me in such.
+	</p>
+	<h2 class="my-2 text-2xl">For the interested:</h2>
+	<p>
+		I'm Israel. My hobbies are running, rock climbing, listening to music, cooking and brewing, and playing video games.
+		I enjoy the bar scene and a good beer and book to go along.
+		<br>
+		<br>
+		My interests include philosohpy of mind, Bhuddism, psychology, ethics, political history/philosophy, and (recently) novels of all sorts.
+		I love meeting new people and good conversation, and I'm keen for different perspectives.
+		<br>
+		<br>
+		I'm a naturalist, humanist (vegan), optimist, and a lover of life and learning. I believe that the center of the plate for philosohpy is 
+		wisdom and the good life.
+	</p>
+	<h2 class="my-2 text-2xl">For my friends and family:</h2>
+	<p>
+		You know me well.
+	</p>
+	<h2 class="my-2 text-2xl">For the novel seeking:</h2>
+	<blockquote class="p-4 my-4 bg-neutral-200 dark:bg-neutral-700 border-l-4 border-gray-300 dark:border-gray-500">
+		<p class="italic font-medium leading-relaxed text-gray-900 dark:text-white">
+			"For there is a growing apprehension that existence is a rat-race in a trap: living organisms, including people, 
+			are merely tubes which put things in at one end and let them out at the other, which both keeps them doing it and in 
+			the long run wears them out. So to keep the farce going, the tubes find ways of making new tubes, which also put things 
+			in at one end and let them out at the other. At the input end they even develop ganglia of nerves called brains, with eyes and ears, 
+			so that they can more easily scrounge around for things to swallow. As and when they get enough to eat, they use up their 
+			surplus energy by wiggling in complicated patterns, making all sorts of noises by blowing air in and out of the input hole, 
+			and gathering together in groups to fight with other groups. In time, the tubes grow such an abundance of attached appliances 
+			that they are hardly recognizable as mere tubes, and they manage to do this in a staggering variety of forms. 
+			There is a vague rule not to eat tubes of your own form, but in general there is serious competition as to who is going to be
+			 the top type of tube. All this seems marvelously futile, and yet, when you begin to think about it, it begins to be more marvelous than futile." — Alan Watts
+		</p>
+	</blockquote>
+	<h2 class="my-2 text-2xl">For those asking themselves the same question:</h2>
+	<blockquote class="p-4 my-4 bg-neutral-200 dark:bg-neutral-700 border-l-4 border-gray-300 dark:border-gray-500">
+		<p class="italic font-medium leading-relaxed text-gray-900 dark:text-white">
+			"What actually happened was something absurdly simple and unspectacular: I stopped thinking. [...] Reason and imagination and all mental chatter died down. 
+			For once, words really failed me. Past and future dropped away. I forgot who and what I was, my name, manhood, animalhood, all that could be called mine. 
+			It was as if I had been born that instant, brand new, mindless, innocent of all memories. There existed only the Now, that present moment and what was clearly given in it. 
+			To look was enough. And what I found was khaki trouserlegs terminating downwards in a pair of brown shoes, khaki sleeves terminating sideways in a pair of pink hands, 
+			and a khaki shirtfront terminating upwards in—absolutely nothing whatever! Certainly not in a head.
 
-	{finished && <p>I finished this tutorial!</p>}
-
-	{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+			It took me no time at all to notice that this nothing, this hole where a head should have been was no ordinary vacancy, no mere nothing. On the contrary, it was very much occupied. 
+			It was a vast emptiness vastly filled, a nothing that found room for everything—room for grass, trees, shadowy distant hills, and far above them snowpeaks like 
+			a row of angular clouds riding the blue sky. I had lost a head and gained a world."
+			― Douglas Harding, On Having No Head
+		</p>
+	</blockquote>
+	
 </BaseLayout>
