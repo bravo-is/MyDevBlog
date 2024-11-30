@@ -20,7 +20,7 @@ const {pageTitle, customBodyStyle} = Astro.props;
 		<title>{pageTitle}</title>
 		<ViewTransitions />
 	</head>
-	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white mx-auto w-full max-w-4xl p-4 leading-relaxed", customBodyStyle]} style="font-family: 'Noto Serif', serif; "></body>
+	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white mx-auto w-full max-w-4xl p-4 leading-relaxed", customBodyStyle]} style="font-family: 'Noto Serif', serif; ">
 		<Header transition:persist/>
 		<slot />
 		<Footer transition:persist/>
