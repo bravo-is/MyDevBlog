@@ -1,0 +1,11 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle:string = "Bookshelf";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <h1 class="my-4 text-4xl">{pageTitle}</h1>
+    <p>This is where I will post about the books I've read.</p>
+</BaseLayout>

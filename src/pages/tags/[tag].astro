@@ -21,6 +21,7 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
+  <h1 class="my-4 text-4xl">Posts about {tag}</h1>
   <ul>
     {posts.map((post) => <Blogpost url={`/posts/${post.slug}`} title={post.data.title}/>)}
   </ul>

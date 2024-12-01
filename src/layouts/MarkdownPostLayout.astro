@@ -1,15 +1,16 @@
 ---
 const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
+import Tags from "../components/Tags.astro";
 ---
 <BaseLayout pageTitle={frontmatter.title}>
 <h1 class="my-4 text-4xl">{frontmatter.title}</h1>
+<div class="flex-wrap">
+    {frontmatter.tags.map((tag: string) => (<p class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-white inline-block bg-slate-400"><a href={`/tags/${tag}`}>{tag}</a></p>))}
+</div>
 <p>Published on {frontmatter.pubDate}</p>
 <p>Written by {frontmatter.author}</p>
 <p><em>{frontmatter.description}</em></p>
 <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-<div class="flex-wrap">
-    {frontmatter.tags.map((tag: string) => (<p class="tag m-1 border-dotted border border-gray-400 rounded-full px-4 py-2 text-lg bg-blue-100"><a href={`/tags/${tag}`}>{tag}</a></p>))}
-</div>
 <slot />
 </BaseLayout>

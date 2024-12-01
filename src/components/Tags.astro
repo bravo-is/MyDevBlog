@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
+  post.data.tags.forEach(tag => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+const uniqueTags = Object.keys(tagCounts);
+
+function getSlateClass(count: number) {
+  const maxCount = Math.max(...Object.values(tagCounts));
+  const minIntensity = 2; // Corresponds to bg-slate-200
+  const maxIntensity = 9; // Corresponds to bg-slate-900
+  const intensity = Math.floor((count / maxCount) * (maxIntensity - minIntensity)) + minIntensity;
+  console.log(`bg-slate-${intensity * 100}`);
+  return `bg-slate-${intensity * 100}`; // Map to bg-slate-200, bg-slate-300, ..., bg-slate-900
+}
+---
+
+<div class="flex flex-wrap">
+    {uniqueTags.map((tag) => (
+        <p class={`max-w-fit m-1 rounded-md px-4 py-2 text-sm text-white inline-block ${getSlateClass(tagCounts[tag])}`}>
+            <a href={`/tags/${tag}`}>{tag} [{tagCounts[tag]}]</a>
+        </p>
+    ))}
+</div>
