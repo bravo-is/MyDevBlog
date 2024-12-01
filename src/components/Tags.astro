@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
+  post.data.tags.forEach(tag => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+const uniqueTags = Object.keys(tagCounts);
+
+function getNeutralClass(count: number) {
+  const maxCount = Math.max(...Object.values(tagCounts));
+  const minIntensity = 2; // Corresponds to bg-neutral-200
+  const maxIntensity = 9; // Corresponds to bg-neutral-900
+  const intensity = Math.floor((count / maxCount) * (maxIntensity - minIntensity)) + minIntensity;
+  console.log(`bg-neutral-${intensity * 100}`);
+  return `bg-neutral-${intensity * 100}`; // Map to bg-neutral-200, bg-neutral-300, ..., bg-neutral-900
+}
+---
+
+<div class="flex flex-wrap">
+    {uniqueTags.map((tag) => (
+        <a href={`/tags/${tag}`}>
+          <p class={`max-w-fit m-1 rounded-md px-4 py-2 text-sm text-white inline-block ${getNeutralClass(tagCounts[tag])}`}>
+              {tag} [{tagCounts[tag]}]
+          </p>
+        </a>
+    ))}
+</div>

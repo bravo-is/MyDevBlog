@@ -1,11 +1,15 @@
 ---
 title: "My Second Blog Post"
-pubDate: 2022-07-08
+pubDate: 2024-11-30
 author: "Israel Bravo"
-description: "After learning some Astro, I couldn't stop!"
-image: 
-    url: "https://docs.astro.build/assets/arc.webp"
-    alt: "Thumbnail of Astro arcs,"
-tags: ["astro", "blogging", "learning in public", "successes"]
+description: "A second post."
+image:
+    url: "https://docs.astro.build/assets/full-logo-light.png" 
+    alt: "The full Astro logo."
+tags: ["astro", "blogging", "meditation"]
 ---
-After a successful first week learning Astro, I decided to try some more. I wrote and imported a small component from memory!
+
+This is just a second blog post for the sake of building this website out
+
+## What I've accomplished
+1. Enlightenment
