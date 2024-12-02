@@ -21,8 +21,8 @@ function getNeutralClass(count: number) {
 
 <div class="flex flex-wrap">
     {uniqueTags.map((tag) => (
-        <a href={`/tags/${tag}`}>
-          <p class={`max-w-fit m-1 rounded-md px-4 py-2 text-sm text-white inline-block ${getNeutralClass(tagCounts[tag])}`}>
+        <a href={`/tags/${tag}`} class={`max-w-fit m-1 rounded-md px-4 py-2 text-sm text-white inline-block ${getNeutralClass(tagCounts[tag])}`}>
+          <p >
               {tag} [{tagCounts[tag]}]
           </p>
         </a>
