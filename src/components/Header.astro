@@ -4,8 +4,8 @@ import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 
-<header id="main-header" class="sticky top-0 z-50 bg-neutral-200 dark:bg-neutral-700 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-    <nav class="mx-auto w-full max-w-4xl px-4">
+<header id="main-header" class="sticky top-0 z-50 bg-neutral-200 dark:bg-neutral-700 w-[100vw] max-w-none relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] transition-transform duration-300 ease-out will-change-transform">
+    <nav class="mx-auto w-full max-w-4xl px-4" style="font-family: 'Playfair Display', serif;">
         <div class="flex justify-between py-3">
             <ThemeIcon />
             <p>Israel Bravo</p>
@@ -14,3 +14,27 @@ import ThemeIcon from './ThemeIcon.astro';
         <Navigation />
     </nav>
 </header>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const header = document.getElementById('main-header');
+        if (!header) return;
+
+        let lastScrollY = window.scrollY;
+        const offset = 80;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+            const pastOffset = currentScrollY > offset;
+
+            if (scrollingDown && pastOffset) {
+                header.classList.add('-translate-y-full');
+            } else {
+                header.classList.remove('-translate-y-full');
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+    });
+</script>
