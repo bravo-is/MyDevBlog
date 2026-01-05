@@ -10,7 +10,7 @@ function Greeting({ greetings }: { greetings: string[] }) {
             setCurrentGreeting(0);
             return;
         }
-        setCurrentGreeting(currentGreetingIndex+1);
+        setCurrentGreeting(nextIndex);
     };
 
     useEffect(() => {

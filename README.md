@@ -1,50 +1,26 @@
-# Astro Starter Kit: Minimal
+# MyDevBlog (Astro)
 
-```
-npm create astro@latest -- --template minimal
-```
+Internal README for my personal Astro-powered blog/portfolio.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Project notes
+- Astro 5 with Tailwind and light React usage (Greeting, ThemeIcon, etc.)
+- ViewTransitions and shared fonts come from src/layouts/BaseLayout.astro.
+- Header is sticky with a theme toggle; nav links live in src/components/Navigation.astro.
+- Assets live in public/ (self.JPEG, hardcover.png); global styles are in src/styles/global.css.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Local development
+- Use Node 20+; install deps once with `npm install`.
+- Dev server: `npm run dev` (alias `npm start`).
+- Production build: `npm run build`; preview a build with `npm run preview`.
 
-## 🚀 Project Structure
+## Editing tips
+- Landing page copy and greeting list: src/pages/index.astro.
+- Shared layout shell: src/layouts/BaseLayout.astro (fonts, transitions, body classes).
+- Components: src/components/ (Header, Hamburger, Navigation, ThemeIcon, Greeting, Footer).
+- Update nav/social links in src/components/Navigation.astro and src/components/Footer.astro.
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Coolors color palette
-https://coolors.co/palette/8ecae6-219ebc-023047-ffb703-fb8500
+## Personal TODOs
+- Flesh out About, Blog, and Bookshelf pages.
+- Set package.json name/metadata and add basic SEO tags.
+- Decide on a color palette (current reference: https://coolors.co/palette/8ecae6-219ebc-023047-ffb703-fb8500).
+- Wire up deployment target (Netlify/Vercel) once content is ready.

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
+import { Image } from 'astro:assets';
+import selfImage from '../assets/self.jpeg';
 const pageTitle = "Home Page";
 const wavyBackground = "sm:bg-[url('/wavesBackgroundLight.svg')] sm:dark:bg-[url('/wavesBackgroundDark.svg')] bg-center bg-cover"
 ---
@@ -10,5 +12,5 @@ const wavyBackground = "sm:bg-[url('/wavesBackgroundLight.svg')] sm:dark:bg-[url
 	<h1 class="my-4 text-6xl sm:leading-normal" style="font-family: 'Bagel Fat One', cursive;">
 		<Greeting client:load greetings={["Hi", "Hello", "Howdy", "Hey there", "Hola", "Konnichiwa"]} /> I'm <span style="color:#8ECAE6">Israel</span>. Welcome to my corner of the internet. 🤠
 	</h1>
-	<img class="rounded-md" src="/self.JPEG" alt="Self Image" />
+	<Image class="rounded-md" src={selfImage} alt="Self Image" />
 </BaseLayout>
