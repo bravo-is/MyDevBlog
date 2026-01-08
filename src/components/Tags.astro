@@ -8,19 +8,50 @@ const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
   return acc;
 }, {});
 const uniqueTags = Object.keys(tagCounts);
+const ShownTagsMax = 7;
 ---
 
 <div class="flex flex-wrap">
   <a href="/blog" class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block">
-    <p >
-        all
-    </p>
+    <p>all</p>
   </a>
-    {uniqueTags.map((tag) => (
-        <a href={`/tags/${tag}`} class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block">
-          <p>
-              {tag} [{tagCounts[tag]}]
-          </p>
-        </a>
-    ))}
+  {uniqueTags.map((tag, index) => (
+    <a 
+      href={`/tags/${tag}`} 
+      class={`"max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block" ${index >= ShownTagsMax ? 'hidden extra-tag' : ''}`}
+    >
+      <p>
+        {tag} [{tagCounts[tag]}]
+      </p>
+    </a>
+  ))}
+  {uniqueTags.length > ShownTagsMax && (
+    <button
+      type="button"
+      class="m-1 text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
+      id="tag-toggle"
+    >
+      show more
+    </button>
+  )}
 </div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const toggleBtn = document.getElementById("tag-toggle");
+    if (!toggleBtn) return;
+    
+    let isExpanded = false;
+    
+    toggleBtn.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      const extraTags = document.querySelectorAll(".extra-tag");
+      
+      extraTags.forEach(tag => {
+        tag.classList.toggle("hidden", !isExpanded);
+      });
+      
+      toggleBtn.textContent = isExpanded ? "show less" : "show more";
+    });
+  });
+</script>
