@@ -31,7 +31,7 @@ const ShownTagsMax = 7;
       class="m-1 text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
       id="tag-toggle"
     >
-      show more
+      show all
     </button>
   )}
 </div>
@@ -51,7 +51,7 @@ const ShownTagsMax = 7;
         tag.classList.toggle("hidden", !isExpanded);
       });
       
-      toggleBtn.textContent = isExpanded ? "show less" : "show more";
+      toggleBtn.textContent = isExpanded ? "show less" : "show all";
     });
   });
 </script>

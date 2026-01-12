@@ -1,11 +1,162 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBookshelfData } from '../lib/hardcover';
 
-const pageTitle:string = "Bookshelf";
+const pageTitle: string = 'Bookshelf';
+const bookshelf = await getBookshelfData();
+const MAX_VISIBLE_READ = 6;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <h1 class="my-4 text-4xl">{pageTitle}</h1>
-    <p>This is where I will post about the books I've read.</p>
+  <section class="space-y-6">
+    <header>
+      <h1 class="my-4 text-4xl">{pageTitle}</h1>
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        A look at what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" class="underline decoration-slate-300 underline-offset-4">Hardcover</a>.
+      </p>
+    </header>
+
+    {bookshelf.error ? (
+      <div class="rounded border border-amber-300 bg-amber-50 p-4 text-amber-900 dark:border-amber-500/60 dark:bg-amber-900/20 dark:text-amber-100">
+        <p class="font-semibold">Hardcover data is unavailable right now.</p>
+        <p class="text-sm">{bookshelf.error}</p>
+      </div>
+    ) : null}
+
+    <div class="grid gap-10">
+      <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Currently Reading</h2>
+        {bookshelf.currentlyReading.length === 0 ? (
+          <p class="text-slate-600 dark:text-slate-400">No current reads.</p>
+        ) : (
+          <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {bookshelf.currentlyReading.map((book) => (
+              <li class="group relative overflow-hidden rounded-xl cursor-pointer">
+                {book.bookUrl ? (
+                  <a href={book.bookUrl} class="block">
+                    {book.coverUrl ? (
+                      <img
+                        src={book.coverUrl}
+                        alt={`${book.title} cover`}
+                        class="h-56 w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="h-56 w-full bg-slate-700 flex items-center justify-center text-xs text-slate-400">
+                        No cover
+                      </div>
+                    )}
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-0">
+                      <p class="text-white text-xs font-medium line-clamp-2">{book.title}</p>
+                    </div>
+                  </a>
+                ) : (
+                  <div class="block">
+                    {book.coverUrl ? (
+                      <img
+                        src={book.coverUrl}
+                        alt={`${book.title} cover`}
+                        class="h-56 w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="h-56 w-full bg-slate-700 flex items-center justify-center text-xs text-slate-400">
+                        No cover
+                      </div>
+                    )}
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-0">
+                      <p class="text-white text-xs font-medium line-clamp-2">{book.title}</p>
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Read</h2>
+        {bookshelf.read.length === 0 ? (
+          <p class="text-slate-600 dark:text-slate-400">No completed reads.</p>
+        ) : (
+          <>
+            <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {bookshelf.read.map((book, index) => (
+                <li class={`group relative overflow-hidden rounded-xl cursor-pointer ${index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''}`}>
+                  {book.bookUrl ? (
+                    <a href={book.bookUrl} class="block">
+                      {book.coverUrl ? (
+                        <img
+                          src={book.coverUrl}
+                          alt={`${book.title} cover`}
+                          class="h-56 w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="h-56 w-full bg-slate-700 flex items-center justify-center text-xs text-slate-400">
+                          No cover
+                        </div>
+                      )}
+                      <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-0">
+                        <p class="text-white text-xs font-medium line-clamp-2">{book.title}</p>
+                      </div>
+                    </a>
+                  ) : (
+                    <div class="block">
+                      {book.coverUrl ? (
+                        <img
+                          src={book.coverUrl}
+                          alt={`${book.title} cover`}
+                          class="h-56 w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="h-56 w-full bg-slate-700 flex items-center justify-center text-xs text-slate-400">
+                          No cover
+                        </div>
+                      )}
+                      <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 md:opacity-0 md:group-hover:opacity-100 md:translate-y-0">
+                        <p class="text-white text-xs font-medium line-clamp-2">{book.title}</p>
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+            {bookshelf.read.length > MAX_VISIBLE_READ && (
+              <button
+                type="button"
+                class="text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
+                id="read-toggle"
+              >
+                show all
+              </button>
+            )}
+          </>
+        )}
+      </section>
+    </div>
+  </section>
 </BaseLayout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const toggleBtn = document.getElementById("read-toggle");
+    if (!toggleBtn) return;
+    
+    let isExpanded = false;
+    
+    toggleBtn.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      const extraBooks = document.querySelectorAll(".extra-read-book");
+      
+      extraBooks.forEach(book => {
+        book.classList.toggle("hidden", !isExpanded);
+      });
+      
+      toggleBtn.textContent = isExpanded ? "show less" : "show all";
+    });
+  });
+</script>

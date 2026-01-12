@@ -1,0 +1,18 @@
+query UserBooks($userId: Int!) {
+  user_books(
+    where: { user_id: { _eq: $userId } }
+    distinct_on: book_id
+    limit: 200
+    offset: 0
+  ) {
+    status_id
+    book {
+      id
+      title
+      slug
+      image {
+        url
+      }
+    }
+  }
+}
