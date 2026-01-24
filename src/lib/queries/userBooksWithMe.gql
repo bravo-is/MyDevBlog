@@ -1,0 +1,20 @@
+query UserBooksWithMe {
+  me {
+    id
+    user_books(
+      distinct_on: book_id
+      limit: 200
+      offset: 0
+    ) {
+      status_id
+      book {
+        id
+        title
+        slug
+        image {
+          url
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,4 @@
-import booksQuery from './queries/books.gql?raw';
-import currentUserQuery from './queries/currentUser.gql?raw';
+import userBooksWithMeQuery from './queries/userBooksWithMe.gql?raw';
 
 type HardcoverImage = {
   url?: string | null;
@@ -41,24 +40,29 @@ type UserBooksData = {
   user_books?: HardcoverUserBook[];
 };
 
-type User = {
+type UserWithBooks = {
   id?: number | null;
   username?: string | null;
+  user_books?: HardcoverUserBook[];
 };
 
-type CurrentUserResponse = {
-  me?: User[] | null;
+type CombinedResponse = {
+  me?: UserWithBooks[] | null;
 };
 
 const fetchHardcover = async <TData>(query: string, variables: Record<string, unknown>) => {
   const authToken = import.meta.env.HARDCOVER_API_TOKEN;
+  if (!authToken) {
+    throw new Error('Hardcover API token is not configured.');
+  }
+  const authHeader = authToken.startsWith('Bearer ') ? authToken : `Bearer ${authToken}`;
   const apiUrl = 'https://api.hardcover.app/v1/graphql';
 
   const response = await fetch(apiUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `${authToken}`,
+      Authorization: authHeader,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -103,10 +107,30 @@ const isRead = (status_id: HardcoverUserBook['status_id']) =>
   status_id === 3;
 
 
+const getCachedBookshelfData = (): BookshelfData | null => {
+  try {
+    // Import cache file
+    const cache = import.meta.glob<{ default: BookshelfData }>(
+      '../lib/bookshelf.cache.json',
+      { eager: true }
+    )['../lib/bookshelf.cache.json'];
+    return cache?.default ?? null;
+  } catch {
+    return null;
+  }
+};
+
 export const getBookshelfData = async (): Promise<BookshelfData> => {
-  const token = import.meta.env.HARDCOVER_API_TOKEN;
+  const token = import.meta.env.HARDCOVER_API_TOKEN?.trim();
 
   if (!token) {
+    const cached = getCachedBookshelfData();
+    if (cached) {
+      return {
+        ...cached,
+        error: 'Using cached data. Missing Hardcover API configuration.',
+      };
+    }
     return {
       currentlyReading: [],
       read: [],
@@ -115,10 +139,17 @@ export const getBookshelfData = async (): Promise<BookshelfData> => {
   }
 
   try {
-    const userData = await fetchHardcover<CurrentUserResponse>(currentUserQuery, {});
-    const userIdNumber = userData?.me?.[0]?.id ?? null;
-
-    if (!userIdNumber) {
+    const data = await fetchHardcover<CombinedResponse>(userBooksWithMeQuery, {});
+    const user = data?.me?.[0];
+    
+    if (!user?.id) {
+      const cached = getCachedBookshelfData();
+      if (cached) {
+        return {
+          ...cached,
+          error: 'Unable to resolve Hardcover user ID. Using cached data.',
+        };
+      }
       return {
         currentlyReading: [],
         read: [],
@@ -126,16 +157,21 @@ export const getBookshelfData = async (): Promise<BookshelfData> => {
       };
     }
 
-    const booksData = await fetchHardcover<UserBooksData>(booksQuery, {
-      userId: userIdNumber,
-    });
-    const userBooks = booksData?.user_books ?? [];
+    const userBooks = user.user_books ?? [];
 
     return {
       currentlyReading: mapUserBooks(userBooks.filter((entry) => isCurrentlyReading(entry.status_id))),
       read: mapUserBooks(userBooks.filter((entry) => isRead(entry.status_id))),
     };
   } catch (error) {
+    // Fall back to cached data on API error
+    const cached = getCachedBookshelfData();
+    if (cached) {
+      return {
+        ...cached,
+        error: `Using cached data (${error instanceof Error ? error.message : 'API error'}).`,
+      };
+    }
     return {
       currentlyReading: [],
       read: [],
