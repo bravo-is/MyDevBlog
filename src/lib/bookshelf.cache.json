@@ -1,0 +1,301 @@
+{
+  "currentlyReading": [
+    {
+      "id": 117535,
+      "title": "Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life",
+      "coverUrl": "https://assets.hardcover.app/edition/12646970/321e6c6b2d5c0d4af0ca2572d117120c18690bc6.jpeg",
+      "bookUrl": "https://hardcover.app/books/wherever-you-go-there-you-are"
+    },
+    {
+      "id": 442994,
+      "title": "The Tyranny of Merit: What's Become of the Common Good?",
+      "coverUrl": "https://assets.hardcover.app/external_data/50292360/00a186d8e15c88ede8310fc7a8bee02664b891f2.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-tyranny-of-merit"
+    },
+    {
+      "id": 445438,
+      "title": "A Very Stable Genius",
+      "coverUrl": "https://assets.hardcover.app/edition/30407108/content.jpeg",
+      "bookUrl": "https://hardcover.app/books/a-very-stable-genius"
+    },
+    {
+      "id": 631417,
+      "title": "Thoughts Without A Thinker",
+      "coverUrl": "https://assets.hardcover.app/edition/30608105/content.jpeg",
+      "bookUrl": "https://hardcover.app/books/thoughts-without-a-thinker"
+    },
+    {
+      "id": 825221,
+      "title": "Funny Story",
+      "coverUrl": "https://assets.hardcover.app/edition/31793459/55edc3794a561dd79aebbee7daabd1f98b317ace.jpeg",
+      "bookUrl": "https://hardcover.app/books/funny-story"
+    },
+    {
+      "id": 924682,
+      "title": "The Compassionate Mind",
+      "coverUrl": "https://assets.hardcover.app/external_data/1362067/5adce9188b018f41fba9bdc84c4671453c39853a.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-compassionate-mind-2009"
+    }
+  ],
+  "read": [
+    {
+      "id": 333,
+      "title": "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East",
+      "coverUrl": "https://assets.hardcover.app/external_data/29355459/025882451a93ef7f5e69081c9c9c7c76ccd386fb.jpeg",
+      "bookUrl": "https://hardcover.app/books/lawrence-in-arabia"
+    },
+    {
+      "id": 16256,
+      "title": "Waking Up: A Guide to Spirituality Without Religion",
+      "coverUrl": "https://assets.hardcover.app/edition/30399542/ec40fca7d6bcd59b5392a96be702bb2c39736db3.jpeg",
+      "bookUrl": "https://hardcover.app/books/waking-up-a-guide-to-spirituality-without-religion"
+    },
+    {
+      "id": 32073,
+      "title": "Flatland: A Romance of Many Dimensions",
+      "coverUrl": "https://assets.hardcover.app/edition/23529880/f825bb82d1d2e6632bb0b440149638c21f73e2e2.jpeg",
+      "bookUrl": "https://hardcover.app/books/flatland"
+    },
+    {
+      "id": 39192,
+      "title": "The Sun Also Rises",
+      "coverUrl": "https://assets.hardcover.app/editions/26368002/7943617386022284.jpg",
+      "bookUrl": "https://hardcover.app/books/the-sun-also-rises"
+    },
+    {
+      "id": 65518,
+      "title": "Slapstick",
+      "coverUrl": "https://assets.hardcover.app/edition/30394726/2c048ceb723ed930538ae2c61e2e4e3d748afc5e.jpeg",
+      "bookUrl": "https://hardcover.app/books/slapstick"
+    },
+    {
+      "id": 111023,
+      "title": "Fire and Fury: Inside the Trump White House",
+      "coverUrl": "https://assets.hardcover.app/external_data/32800091/132319d07a8880ae45ad6d4f8adc70c437ce9715.jpeg",
+      "bookUrl": "https://hardcover.app/books/fire-and-fury"
+    },
+    {
+      "id": 122240,
+      "title": "Slaughterhouse-Five",
+      "coverUrl": "https://assets.hardcover.app/edition/17079379/6cd33f6e07aae9f2a3f5299de4fe48c07571dd66.jpeg",
+      "bookUrl": "https://hardcover.app/books/slaughterhouse-five-1968"
+    },
+    {
+      "id": 172305,
+      "title": "The Deficit Myth: Modern Monetary Theory and the Birth of the People's Economy",
+      "coverUrl": "https://assets.hardcover.app/external_data/24055521/f48e6c3fdeb5907e8665d2c8403790c376f93991.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-deficit-myth"
+    },
+    {
+      "id": 177754,
+      "title": "The Gambler",
+      "coverUrl": "https://assets.hardcover.app/external_data/40705256/d0d71b8265383a2cfbb9ce5d6a6f506ca637a1be.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-gambler"
+    },
+    {
+      "id": 247482,
+      "title": "Contagious",
+      "coverUrl": "https://assets.hardcover.app/edition/4326720/12130640-L.jpg",
+      "bookUrl": "https://hardcover.app/books/contagious"
+    },
+    {
+      "id": 264765,
+      "title": "Free Will",
+      "coverUrl": "https://assets.hardcover.app/edition/30401321/328e507cefbfc21e0623b3d0b0e8c2ef3ab3665d.jpeg",
+      "bookUrl": "https://hardcover.app/books/free-will"
+    },
+    {
+      "id": 270618,
+      "title": "An Astronaut's Guide to Life on Earth",
+      "coverUrl": "https://assets.hardcover.app/edition/6099306/8247379750ce88f41ebb9918f52ae7623745ede0.jpeg",
+      "bookUrl": "https://hardcover.app/books/an-astronauts-guide-to-life-on-earth"
+    },
+    {
+      "id": 273657,
+      "title": "The Life You Can Save",
+      "coverUrl": "https://assets.hardcover.app/edition/15781629/6289300-L.jpg",
+      "bookUrl": "https://hardcover.app/books/the-life-you-can-save"
+    },
+    {
+      "id": 274620,
+      "title": "Breakfast of Champions",
+      "coverUrl": "https://assets.hardcover.app/external_data/24061235/6a88206b69e8415ede780961bcf9a1ba966cd446.jpeg",
+      "bookUrl": "https://hardcover.app/books/breakfast-of-champions"
+    },
+    {
+      "id": 306986,
+      "title": "Deep Work: Rules for Focused Success in a Distracted World",
+      "coverUrl": "https://assets.hardcover.app/external_data/43295845/f4a8749dd530cd3f34b4cb00d225aca590487218.jpeg",
+      "bookUrl": "https://hardcover.app/books/deep-work"
+    },
+    {
+      "id": 375938,
+      "title": "Fahrenheit 451",
+      "coverUrl": "https://assets.hardcover.app/edition/6336191/3d353406f14fd36043a8bdfb8c3288f90ee4f96c.jpeg",
+      "bookUrl": "https://hardcover.app/books/fahrenheit-451"
+    },
+    {
+      "id": 427315,
+      "title": "Cat's Cradle",
+      "coverUrl": "https://assets.hardcover.app/external_data/2232430/3228ec27f3605d160fed96e79fc0e3e0b5313e55.jpeg",
+      "bookUrl": "https://hardcover.app/books/cats-cradle"
+    },
+    {
+      "id": 427444,
+      "title": "Four Thousand Weeks: Time Management for Mortals",
+      "coverUrl": "https://assets.hardcover.app/edition/22203135/40c77bd75587cff96c82e2085f47d7402076a543.jpeg",
+      "bookUrl": "https://hardcover.app/books/four-thousand-weeks-time-management-for-mortals"
+    },
+    {
+      "id": 429195,
+      "title": "Soonish",
+      "coverUrl": "https://assets.hardcover.app/edition/30404396/10097090-L.jpg",
+      "bookUrl": "https://hardcover.app/books/soonish"
+    },
+    {
+      "id": 433144,
+      "title": "The Sirens of Titan",
+      "coverUrl": "https://assets.hardcover.app/editions/6152899/6238489301732648-thesirens.jpg",
+      "bookUrl": "https://hardcover.app/books/the-sirens-of-titan"
+    },
+    {
+      "id": 434204,
+      "title": "Conscious: A Brief Guide to the Fundamental Mystery of the Mind",
+      "coverUrl": "https://assets.hardcover.app/external_data/59383999/c34e54e155fcf23786f87900cbb89a645a41305a.jpeg",
+      "bookUrl": "https://hardcover.app/books/conscious"
+    },
+    {
+      "id": 435434,
+      "title": "Notes from Underground, White Nights, The Dream of a Ridiculous Man, and Selections from The House of the Dead",
+      "coverUrl": "https://assets.hardcover.app/external_data/39839767/74946b35c5d48c94b63cb95abf5e87cd7e2bca38.jpeg",
+      "bookUrl": "https://hardcover.app/books/notes-from-underground-white-nights-the-dream-of-a-ridiculous-man-and-selections-from-the-house-of-the-dead"
+    },
+    {
+      "id": 441336,
+      "title": "Homo Deus: A Brief History of Tomorrow",
+      "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
+      "bookUrl": "https://hardcover.app/books/homo-deus"
+    },
+    {
+      "id": 441419,
+      "title": "On Having No Head: Zen and the Rediscovery of the Obvious",
+      "coverUrl": "https://assets.hardcover.app/external_data/43302761/57897f0de4f404d889137e8a5196ca8bc86b72ef.jpeg",
+      "bookUrl": "https://hardcover.app/books/on-having-no-head"
+    },
+    {
+      "id": 441443,
+      "title": "Islam and the Future of Tolerance: A Dialogue",
+      "coverUrl": "https://assets.hardcover.app/edition/661871/11401451-L.jpg",
+      "bookUrl": "https://hardcover.app/books/islam-and-the-future-of-tolerance-a-dialogue"
+    },
+    {
+      "id": 441473,
+      "title": "The Most Good You Can Do",
+      "coverUrl": "https://assets.hardcover.app/edition/21361135/9256001-L.jpg",
+      "bookUrl": "https://hardcover.app/books/the-most-good-you-can-do"
+    },
+    {
+      "id": 443052,
+      "title": "At the Existentialist Café: Freedom, Being, and Apricot Cocktails",
+      "coverUrl": "https://assets.hardcover.app/edition/24678009/10302540-L.jpg",
+      "bookUrl": "https://hardcover.app/books/at-the-existentialist-cafe"
+    },
+    {
+      "id": 469783,
+      "title": "Crime and Punishment",
+      "coverUrl": "https://assets.hardcover.app/edition/11223468/295861-L.jpg",
+      "bookUrl": "https://hardcover.app/books/crime-and-punishment"
+    },
+    {
+      "id": 470383,
+      "title": "What Does It All Mean?",
+      "coverUrl": "https://assets.hardcover.app/external_data/61602104/cc53084364f8c1125d410d5b418d291247dd80ec.jpeg",
+      "bookUrl": "https://hardcover.app/books/what-does-it-all-mean-1987"
+    },
+    {
+      "id": 483910,
+      "title": "The Working Life",
+      "coverUrl": "https://assets.hardcover.app/edition/30424395/605262-L.jpg",
+      "bookUrl": "https://hardcover.app/books/the-working-life"
+    },
+    {
+      "id": 488783,
+      "title": "Making Sense",
+      "coverUrl": "https://assets.hardcover.app/external_data/60105775/40693dbf7ea32346c8c9197596a7127ec199cac5.jpeg",
+      "bookUrl": "https://hardcover.app/books/making-sense-2020"
+    },
+    {
+      "id": 499673,
+      "title": "Mindwandering",
+      "coverUrl": "https://assets.hardcover.app/edition/30449260/content.jpeg",
+      "bookUrl": "https://hardcover.app/books/mindwandering"
+    },
+    {
+      "id": 529099,
+      "title": "Brain Food",
+      "coverUrl": "https://assets.hardcover.app/edition/30532152/35457267._SX98_.jpg",
+      "bookUrl": "https://hardcover.app/books/brain-food-how-to-eat-smart-and-sharpen-your-mind"
+    },
+    {
+      "id": 530467,
+      "title": "Death",
+      "coverUrl": "https://assets.hardcover.app/edition/30485388/content.jpeg",
+      "bookUrl": "https://hardcover.app/books/death-888ce77f-86a0-48f7-975f-905a841e98e6"
+    },
+    {
+      "id": 631934,
+      "title": "Brainstorms",
+      "coverUrl": "https://assets.hardcover.app/edition/30608728/180fb07728f8f8ae29da3c43fbf8385b88915d00.jpeg",
+      "bookUrl": "https://hardcover.app/books/brainstorms"
+    },
+    {
+      "id": 730514,
+      "title": "Overlord (Light Novel), Vol. 1: The Undead King",
+      "coverUrl": "https://assets.hardcover.app/edition/30560881/8c9e8263-d693-4ad6-9d25-86250e0138a8.jpg",
+      "bookUrl": "https://hardcover.app/books/overlord-light-novel-vol-1"
+    },
+    {
+      "id": 839334,
+      "title": "America Through Foreign Eyes",
+      "coverUrl": "https://assets.hardcover.app/external_data/59991261/144c2447041b41b7957d7fdbdcb92f3358caff21.jpeg",
+      "bookUrl": "https://hardcover.app/books/america-through-foreign-eyes"
+    },
+    {
+      "id": 853315,
+      "title": "Going Infinite: The Rise and Fall of a New Tycoon",
+      "coverUrl": "https://assets.hardcover.app/external_data/61465404/ac082cb828679cff2d5e5fde56086ed898fc0f90.jpeg",
+      "bookUrl": "https://hardcover.app/books/going-infinite"
+    },
+    {
+      "id": 881308,
+      "title": "Psych: The Story of the Human Mind",
+      "coverUrl": "https://assets.hardcover.app/external_data/60029181/0051862208774b65b1491e7aee95c6a872582e97.jpeg",
+      "bookUrl": "https://hardcover.app/books/psych-the-story-of-the-human-mind"
+    },
+    {
+      "id": 931339,
+      "title": "How Are We to Live?",
+      "coverUrl": "https://assets.hardcover.app/external_data/60085192/fbe176e29e73fb459d940c6bed67265f0418926c.jpeg",
+      "bookUrl": "https://hardcover.app/books/how-are-we-to-live"
+    },
+    {
+      "id": 1284543,
+      "title": "Why Vegan?: Eating Ethically",
+      "coverUrl": "https://assets.hardcover.app/external_data/60423847/2f68aee2b6bd0ea4aa292620f18f7d987a7c8090.jpeg",
+      "bookUrl": "https://hardcover.app/books/why-vegan-eating-ethically"
+    },
+    {
+      "id": 1474779,
+      "title": "Flourish",
+      "coverUrl": "https://assets.hardcover.app/edition/31520966/95a3e983d75a6cc2a7d1df46cbf7020400680897.jpeg",
+      "bookUrl": "https://hardcover.app/books/flourish-2023"
+    },
+    {
+      "id": 1869465,
+      "title": "The Bomb in My Garden",
+      "coverUrl": "https://assets.hardcover.app/external_data/315664/b7aa37b09ab063083154079f603a2a2c818d6292.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-bomb-in-my-garden"
+    }
+  ],
+  "lastUpdated": "2026-01-24T20:11:37.439Z"
+}

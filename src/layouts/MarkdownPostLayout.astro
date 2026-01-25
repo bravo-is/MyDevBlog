@@ -1,21 +1,87 @@
 ---
 const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
+import ProgressBar from "../components/ProgressBar.tsx";
+
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+// SVG Icons
+const UserIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>`;
+const CalendarIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-<h1 class="my-4 text-4xl">{frontmatter.title}</h1>
-<div class="flex-wrap">
-    {frontmatter.tags.map((tag: string) => (
-    <a href={`/tags/${tag}`} class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block">
-        <p>
-            {tag}
+  <div class="sm:hidden sticky top-14 -mx-4 z-10">
+    <ProgressBar client:load/>
+  </div>
+  
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+      <!-- Tags -->
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="flex flex-wrap mb-4">
+          {frontmatter.tags.map((tag: string) => (
+            <a 
+              href={`/tags/${tag}`} 
+              class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+      
+      <!-- Title -->
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
+        {frontmatter.title}
+      </h1>
+      
+      <!-- Description -->
+      {frontmatter.description && (
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+          {frontmatter.description}
         </p>
-    </a>))}
-</div>
-<p>Published on {frontmatter.pubDate}</p>
-<p>Written by {frontmatter.author}</p>
-<p><em>{frontmatter.description}</em></p>
-<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-<slot />
+      )}
+      
+      <!-- Meta Info -->
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-500">
+        <div class="flex items-center gap-2">
+          <Fragment set:html={UserIcon} />
+          <span>{frontmatter.author}</span>
+        </div>
+        <span class="text-gray-300 dark:text-gray-700">•</span>
+        <div class="flex items-center gap-2">
+          <Fragment set:html={CalendarIcon} />
+          <time datetime={frontmatter.pubDate}>{formattedDate}</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    {frontmatter.image && (
+      <div class="mb-12 -mx-4 md:mx-0">
+        <img 
+          src={frontmatter.image.url} 
+          alt={frontmatter.image.alt}
+          class="w-full rounded-lg shadow-lg object-cover"
+          loading="lazy"
+        />
+        {frontmatter.image.alt && (
+          <p class="text-sm text-gray-500 dark:text-gray-500 text-center mt-3 italic">
+            {frontmatter.image.alt}
+          </p>
+        )}
+      </div>
+    )}
+
+    <!-- Article Content -->
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <slot />
+    </div>
+  </article>
 </BaseLayout>
