@@ -6,7 +6,6 @@ Internal README for my personal Astro-powered blog/portfolio.
 - Astro 5 with Tailwind and light React usage (Greeting, ThemeIcon, etc.)
 - ViewTransitions and shared fonts come from src/layouts/BaseLayout.astro.
 - Header is sticky with a theme toggle; nav links live in src/components/Navigation.astro.
-- Assets live in public/ (self.JPEG, hardcover.png); global styles are in src/styles/global.css.
 
 ## Local development
 - Use Node 20+; install deps once with `npm install`.

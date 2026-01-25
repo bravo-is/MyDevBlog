@@ -1,24 +1,16 @@
 ---
-title: "My First Blog Post"
-pubDate: 2022-07-01
+title: "First Post"
+pubDate: 2026-01-24
 author: "Israel Bravo"
-description: "This is the first post of my new Astro blog."
-image:
-    url: "https://docs.astro.build/assets/full-logo-light.png" 
-    alt: "The full Astro logo."
-tags: ["astro", "blogging", "learning in public", "foo", "bar", "fum", "fuzz", "bam", "boo"]
+description: "A brief welcome."
+tags: ["webdev", "philosophy"]
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+Welcome to my blog. This will serve as a place for me to learn in public and as a collection of my thoughts. 
+  
+## What's next  
+I plan to make continous improvements on the look and feel of my website, so long as it remains novel and engaging.
 
-## What I've accomplished
+Time will tell what shape this takes. I'm hoping to create a coherent narrative around what I find interesting in life. You can expect reflections on current events, deep dives into niche subjects, and explorations of the abstract ideas that occupy my mind.
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+Please see this as a seeker's memoir. Part philosophy, part obscure ramblings. Nothing groundbreaking, but hopefully something worth your time. 
