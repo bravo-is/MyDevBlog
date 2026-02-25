@@ -26,7 +26,7 @@ export type BookshelfItem = {
   id: number;
   title: string;
   coverUrl: string | null;
-  bookUrl: string | null;
+  bookUrl: string;
 };
 
 export type BookshelfData = {
@@ -89,7 +89,9 @@ const mapUserBooks = (books: HardcoverUserBook[] | undefined) => {
     const book = entry.book;
     const title = book?.title?.trim() || 'Untitled';
     const coverUrl = book?.image?.url ?? null;
-    const bookUrl = book?.slug ? `https://hardcover.app/books/${book.slug}` : null;
+    const bookUrl = book?.slug 
+      ? `https://hardcover.app/books/${book.slug}` 
+      : 'https://hardcover.app/home';
 
     return {
       id: book?.id ?? 0,

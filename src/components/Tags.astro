@@ -20,9 +20,14 @@ const ShownTagsMax = 7;
       href={`/tags/${tag}`} 
       class={`"max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block" ${index >= ShownTagsMax ? 'hidden extra-tag' : ''}`}
     >
-      <p>
-        {tag} [{tagCounts[tag]}]
-      </p>
+      <div class="flex items-center gap-2">
+        <p>
+          {tag}
+        </p>
+        <span class="text-xs font-medium bg-neutral-300 dark:bg-neutral-600 text-gray-700 dark:text-gray-300 rounded-full px-2.5 py-0.5">
+          {tagCounts[tag]}
+        </span>
+      </div>
     </a>
   ))}
   {uniqueTags.length > ShownTagsMax && (

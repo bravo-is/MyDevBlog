@@ -1,7 +1,6 @@
 ---
 const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
-import ProgressBar from "../components/ProgressBar.tsx";
 
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -15,9 +14,6 @@ const CalendarIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" vie
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <div class="sm:hidden sticky top-14 -mx-4 z-10">
-    <ProgressBar client:load/>
-  </div>
   
   <article class="max-w-3xl mx-auto px-4 py-8">
     <!-- Header Section -->
