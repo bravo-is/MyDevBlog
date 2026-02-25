@@ -7,6 +7,9 @@ export default {
 			fontFamily: {
 				sans: ['Lora', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
 			},
+			colors: {
+				'accent-blue': '#8ECAE6',
+			},
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {
@@ -31,11 +34,51 @@ export default {
 						},
 						code: {
 							fontWeight: '500',
+							backgroundColor: theme('colors.neutral.100'),
+							color: theme('colors.gray.900'),
+							padding: '0.2em 0.4em',
+							borderRadius: '0.25rem',
+						},
+						'code::before': {
+							content: '',
+						},
+						'code::after': {
+							content: '',
+						},
+						pre: {
+							backgroundColor: theme('colors.neutral.900'),
+							border: `1px solid ${theme('colors.neutral.800')}`,
+							borderRadius: '0.5rem',
+							overflow: 'auto',
+						},
+						'pre code': {
+							backgroundColor: 'transparent',
+							color: theme('colors.neutral.100'),
+							padding: '0',
 						},
 						a: {
+							color: theme('colors.accent-blue'),
 							fontWeight: '500',
 							textDecoration: 'underline',
 							textUnderlineOffset: '2px',
+							textDecorationThickness: '1.5px',
+							'&:hover': {
+								color: theme('colors.blue.500'),
+								textDecorationThickness: '2px',
+							},
+						},
+						blockquote: {
+							borderLeftColor: theme('colors.accent-blue'),
+							borderLeftWidth: '4px',
+							paddingLeft: '1.5em',
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
+							fontStyle: 'italic',
+							color: theme('colors.gray.700'),
+						},
+						'blockquote p': {
+							marginTop: '0',
+							marginBottom: '0',
 						},
 					},
 				},
@@ -53,7 +96,10 @@ export default {
 					css: {
 						color: theme('colors.gray.100'),
 						a: {
-							color: theme('colors.blue.400'),
+							color: theme('colors.accent-blue'),
+							'&:hover': {
+								color: theme('colors.blue.300'),
+							},
 						},
 						h2: {
 							color: theme('colors.gray.100'),
@@ -62,7 +108,12 @@ export default {
 							color: theme('colors.gray.100'),
 						},
 						code: {
-							color: theme('colors.gray.100'),
+							backgroundColor: theme('colors.neutral.800'),
+							color: theme('colors.neutral.100'),
+						},
+						blockquote: {
+							borderLeftColor: theme('colors.accent-blue'),
+							color: theme('colors.gray.300'),
 						},
 						strong: {
 							color: theme('colors.gray.100'),
