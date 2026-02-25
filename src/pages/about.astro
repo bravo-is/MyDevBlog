@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProgressBar from '../components/ProgressBar';
 
 const pageTitle:string = "Who am I?";
 const lastUpdated:string = "11-Jan-2026";
@@ -8,10 +7,6 @@ const lastUpdated:string = "11-Jan-2026";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-
-	<div class="sm:hidden sticky top-14 -mx-4 z-10">
-		<ProgressBar client:load/>
-	</div>
 	
 	<article>
 		<!-- Header -->
