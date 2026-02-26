@@ -17,12 +17,12 @@ export default function ScorllSection() {
 
   return (
     <motion.div
-      style={{ scaleX: scrollYProgress }}
+      style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.2 }}
     >
-      <hr className="border-4 border-orange-600" />
+      <div className="h-1 bg-[linear-gradient(90deg,hsl(30_100%_50%),hsl(30_100%_70%))] dark:bg-[linear-gradient(90deg,hsl(265_55%_30%),hsl(265_55%_60%))]" />
     </motion.div>
   );
 }

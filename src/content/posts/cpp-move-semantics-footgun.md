@@ -3,6 +3,9 @@ title: "The Implicit Move Footgun: Dangling Pointers in C++"
 pubDate: 2026-02-24
 description: "How implicit moves copy raw pointers instead of transferring ownership, creating dangling pointer bugs."
 author: "Israel Bravo"
+image:
+    url: "/images/posts/cpp-move-footgun.webp"
+    alt: "Diagram showing implicit move performing a shallow pointer copy"
 tags: ["cpp", "memory-management", "move-semantics"]
 ---
 

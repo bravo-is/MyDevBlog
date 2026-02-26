@@ -4,7 +4,9 @@ import Tags from '../components/Tags.astro';
 import PostList from '../components/PostList.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 const pageTitle = "My Blog";
 ---
 
