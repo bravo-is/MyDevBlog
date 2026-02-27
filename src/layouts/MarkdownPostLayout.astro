@@ -10,7 +10,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
-const fallbackImagePath = "/images/social/default-self.jpeg";
+const fallbackImagePath = "/images/social/default-self-card-1200x630.jpg";
 const socialImagePath = frontmatter.image?.url ?? fallbackImagePath;
 const socialImageUrl = new URL(socialImagePath, siteUrl).href;
 
