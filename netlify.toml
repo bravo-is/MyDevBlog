@@ -5,8 +5,3 @@
 [env.production]
   # Add a longer timeout for the build to accommodate API requests
   NODE_OPTIONS = "--max-old-space-size=4096"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
