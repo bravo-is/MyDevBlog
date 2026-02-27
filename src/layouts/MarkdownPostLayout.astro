@@ -10,7 +10,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
-const fallbackImagePath = "/images/social/default-self.jpeg";
+const fallbackImagePath = "/images/social/default-self-card-1200x630.webp";
 const socialImagePath = frontmatter.image?.url ?? fallbackImagePath;
 const socialImageUrl = new URL(socialImagePath, siteUrl).href;
 
@@ -34,14 +34,14 @@ const CalendarIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" vie
     <meta property="og:image:secure_url" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={frontmatter.image?.alt ?? "Israel Bravo blog preview image"} />
+    <meta property="og:image:alt" content={frontmatter.image?.alt ?? "Israel Bravo's blog preview image"} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={frontmatter.title} />
     <meta name="twitter:description" content={frontmatter.description} />
     <meta name="twitter:url" content={pageUrl} />
     <meta name="twitter:image" content={socialImageUrl} />
-    <meta name="twitter:image:alt" content={frontmatter.image?.alt ?? "Israel Bravo blog preview image"} />
+    <meta name="twitter:image:alt" content={frontmatter.image?.alt ?? "Israel Bravo's blog preview image"} />
 
     <meta property="article:published_time" content={new Date(frontmatter.pubDate).toISOString()} />
     {frontmatter.author && <meta property="article:author" content={frontmatter.author} />}
