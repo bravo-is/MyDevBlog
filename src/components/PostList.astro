@@ -11,7 +11,7 @@ const { posts } = Astro.props;
 <ul class="space-y-6">
   {posts.map((post) => (
     <li class="group border border-neutral-300 dark:border-neutral-700 rounded-lg p-6 hover:shadow-md hover:border-neutral-400 dark:hover:border-neutral-600">
-      <a href={`/posts/${post.slug}/`} class="block">
+      <a href={`/posts/${post.id}/`} class="block">
         <article class="space-y-2">
           <h1 class="text-2xl font-semibold decoration-2 group-hover:underline">
             {post.data.title}
