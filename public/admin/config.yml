@@ -1,0 +1,63 @@
+backend:
+  name: github
+  repo: bravo-is/MyDevBlog
+  branch: main
+  use_graphql: true
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: posts
+    label: Posts
+    folder: src/content/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: pubDate
+        widget: date
+        format: YYYY-MM-DD
+      - label: Author
+        name: author
+        widget: string
+        default: Israel Bravo
+      - label: Description
+        name: description
+        widget: text
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - label: URL
+            name: url
+            widget: image
+            required: false
+          - label: Alt Text
+            name: alt
+            widget: string
+            required: false
+      - label: Tags
+        name: tags
+        widget: list
+        summary: "{{fields.tag}}"
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Body
+        name: body
+        widget: markdown
