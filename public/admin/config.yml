@@ -27,15 +27,20 @@ collections:
         widget: string
       - label: Publish Date
         name: pubDate
-        widget: date
-        format: YYYY-MM-DD
+        widget: datetime
+        default: "{{now}}"
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
       - label: Author
         name: author
         widget: string
+        required: true
         default: Israel Bravo
       - label: Description
         name: description
         widget: text
+        required: true
       - label: Image
         name: image
         widget: object
@@ -53,11 +58,16 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        summary: "{{fields.tag}}"
+        default:
+          - general
         field:
           label: Tag
           name: tag
           widget: string
+          required: true
+          pattern:
+            - "^[a-z0-9-]+$"
+            - "Use lowercase letters, numbers, and hyphens only."
       - label: Body
         name: body
         widget: markdown

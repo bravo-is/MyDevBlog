@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { formatPostDate, postDateTime } from "../lib/dates";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
@@ -17,8 +18,8 @@ const { posts } = Astro.props;
             {post.data.title}
           </h1>
           <div class="flex justify-between items-center">
-            <time class="text-sm text-gray-500 dark:text-gray-400">
-              {new Date(post.data.pubDate).toLocaleDateString()}
+            <time datetime={postDateTime(post.data.pubDate)} class="text-sm text-gray-500 dark:text-gray-400">
+              {formatPostDate(post.data.pubDate)}
             </time>
           </div>
           <p class="text-gray-600 dark:text-gray-300">
