@@ -1,0 +1,74 @@
+backend:
+  name: github
+  repo: bravo-is/MyDevBlog
+  # /admin is configured to write to main for production content publishing.
+  branch: main
+  use_graphql: true
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: posts
+    label: Posts
+    folder: src/content/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: pubDate
+        widget: datetime
+        default: "{{now}}"
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - label: Author
+        name: author
+        widget: string
+        required: true
+        default: Israel Bravo
+      - label: Description
+        name: description
+        widget: text
+        required: true
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - label: URL
+            name: url
+            widget: image
+            required: false
+          - label: Alt Text
+            name: alt
+            widget: string
+            required: false
+      - label: Tags
+        name: tags
+        widget: list
+        default:
+          - general
+        field:
+          label: Tag
+          name: tag
+          widget: string
+          required: true
+          pattern:
+            - "^[a-z0-9-]+$"
+            - "Use lowercase letters, numbers, and hyphens only."
+      - label: Body
+        name: body
+        widget: markdown

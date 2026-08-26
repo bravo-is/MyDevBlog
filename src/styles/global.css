@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
+  --color-accent-blue: #8ECAE6;
+}

@@ -1,11 +1,85 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+export const prerender = false;
 
-const pageTitle:string = "Bookshelf";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBookshelfData } from '../lib/hardcover';
+import BookCard from '../components/BookCard.astro';
+
+const pageTitle: string = 'Bookshelf';
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+const bookshelf = await getBookshelfData();
+if (bookshelf.error) {
+  console.log(`[bookshelf] ${bookshelf.error}`);
+}
+const MAX_VISIBLE_READ = 6;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <h1 class="my-4 text-4xl">{pageTitle}</h1>
-    <p>This is where I will post about the books I've read.</p>
+  <section class="space-y-6">
+    <header>
+      <h1 class="my-4 text-4xl">{pageTitle}</h1>
+      <p class="text-lg text-gray-700 dark:text-gray-300">
+        A look at what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="text-accent-blue underline underline-offset-2 font-medium hover:opacity-80">Hardcover</a>.
+      </p>
+    </header>
+
+    <div class="grid gap-10">
+      <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Currently Reading</h2>
+        {bookshelf.currentlyReading.length === 0 ? (
+          <p class="text-slate-600 dark:text-slate-400">No current reads.</p>
+        ) : (
+          <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {bookshelf.currentlyReading.map((book) => (
+              <BookCard book={book} />
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Read</h2>
+        {bookshelf.read.length === 0 ? (
+          <p class="text-slate-600 dark:text-slate-400">No completed reads.</p>
+        ) : (
+          <>
+            <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {bookshelf.read.map((book, index) => (
+                <BookCard book={book} className={index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''} />
+              ))}
+            </ul>
+            {bookshelf.read.length > MAX_VISIBLE_READ && (
+              <button
+                type="button"
+                class="text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
+                id="read-toggle"
+              >
+                show all
+              </button>
+            )}
+          </>
+        )}
+      </section>
+    </div>
+  </section>
 </BaseLayout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const toggleBtn = document.getElementById("read-toggle");
+    if (!toggleBtn) return;
+    
+    let isExpanded = false;
+    
+    toggleBtn.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      const extraBooks = document.querySelectorAll(".extra-read-book");
+      
+      extraBooks.forEach(book => {
+        book.classList.toggle("hidden", !isExpanded);
+      });
+      
+      toggleBtn.textContent = isExpanded ? "show less" : "show all";
+    });
+  });
+</script>

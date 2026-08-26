@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[env.production]
+  # Add a longer timeout for the build to accommodate API requests
+  NODE_OPTIONS = "--max-old-space-size=4096"
