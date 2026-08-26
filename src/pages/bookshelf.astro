@@ -8,6 +8,9 @@ import BookCard from '../components/BookCard.astro';
 const pageTitle: string = 'Bookshelf';
 Astro.response.headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
 const bookshelf = await getBookshelfData();
+if (bookshelf.error) {
+  console.log(`[bookshelf] ${bookshelf.error}`);
+}
 const MAX_VISIBLE_READ = 6;
 ---
 
@@ -19,13 +22,6 @@ const MAX_VISIBLE_READ = 6;
         A look at what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="text-accent-blue underline underline-offset-2 font-medium hover:opacity-80">Hardcover</a>.
       </p>
     </header>
-
-    {bookshelf.error ? (
-      <div class="rounded border border-amber-300 bg-amber-50 p-4 text-amber-900 dark:border-amber-500/60 dark:bg-amber-900/20 dark:text-amber-100">
-        <p class="font-semibold">Hardcover data is unavailable right now.</p>
-        <p class="text-sm">{bookshelf.error}</p>
-      </div>
-    ) : null}
 
     <div class="grid gap-10">
       <section class="space-y-4">
