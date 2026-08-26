@@ -1,17 +1,10 @@
 import { getStoredBookshelfData } from './bookshelf-store';
+import cachedBookshelf from './bookshelf.cache.json';
 import type { BookshelfData } from './bookshelf';
 export type { BookshelfData, BookshelfItem } from './bookshelf';
 
 const getCachedBookshelfData = (): BookshelfData | null => {
-  try {
-    const cache = import.meta.glob<{ default: BookshelfData }>(
-      '../lib/bookshelf.cache.json',
-      { eager: true }
-    )['../lib/bookshelf.cache.json'];
-    return cache?.default ?? null;
-  } catch {
-    return null;
-  }
+  return cachedBookshelf;
 };
 
 export const getBookshelfData = async (): Promise<BookshelfData> => {
