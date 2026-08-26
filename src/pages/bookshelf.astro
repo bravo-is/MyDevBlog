@@ -1,9 +1,12 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getBookshelfData } from '../lib/hardcover';
 import BookCard from '../components/BookCard.astro';
 
 const pageTitle: string = 'Bookshelf';
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
 const bookshelf = await getBookshelfData();
 const MAX_VISIBLE_READ = 6;
 ---
