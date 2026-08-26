@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: bravo-is/MyDevBlog
+  # /admin is configured to write to main for production content publishing.
   branch: main
   use_graphql: true
 

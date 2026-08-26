@@ -9,8 +9,8 @@ const postsCollection = defineCollection({
     description: z.string(),
     author: z.string(),
     image: z.object({
-      url: z.string(),
-      alt: z.string(),
+      url: z.string().optional(),
+      alt: z.string().optional(),
     }).optional(),
     tags: z.array(z.string()),
   }),

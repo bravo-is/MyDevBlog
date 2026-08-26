@@ -10,7 +10,7 @@ const { book, className = '' } = Astro.props;
 ---
 
 <li class={`group relative overflow-hidden rounded-xl cursor-pointer ${className}`.trim()}>
-  <a href={book.bookUrl} class="block">
+  <a href={book.bookUrl} target="_blank" rel="noopener noreferrer" class="block">
     {book.coverUrl ? (
       <img
         src={book.coverUrl}

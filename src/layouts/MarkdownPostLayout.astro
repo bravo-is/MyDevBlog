@@ -7,6 +7,7 @@ const formattedDate = formatPostDate(frontmatter.pubDate);
 
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
+const featuredImage = frontmatter.image?.url ? frontmatter.image : undefined;
 const fallbackImagePath = "/images/social/default-self-card-1200x630.webp";
 const socialImagePath = frontmatter.image?.url ?? fallbackImagePath;
 const socialImageUrl = new URL(socialImagePath, siteUrl).href;
@@ -89,17 +90,17 @@ const CalendarIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" vie
     </header>
 
     <!-- Featured Image -->
-    {frontmatter.image && (
+    {featuredImage && (
       <div class="mb-12 -mx-4 md:mx-0">
         <img 
-          src={frontmatter.image.url} 
-          alt={frontmatter.image.alt}
+          src={featuredImage.url}
+          alt={featuredImage.alt ?? ''}
           class="w-full rounded-lg shadow-lg object-cover"
           loading="lazy"
         />
-        {frontmatter.image.alt && (
+        {featuredImage.alt && (
           <p class="text-sm text-gray-500 dark:text-gray-500 text-center mt-3 italic">
-            {frontmatter.image.alt}
+            {featuredImage.alt}
           </p>
         )}
       </div>

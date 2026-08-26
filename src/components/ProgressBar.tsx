@@ -1,7 +1,7 @@
 import { motion, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
 
-export default function ScorllSection() {
+export default function ProgressBar() {
   const { scrollYProgress } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
 
