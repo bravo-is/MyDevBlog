@@ -3,7 +3,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
 
 [env.production]
   # Add a longer timeout for the build to accommodate API requests
