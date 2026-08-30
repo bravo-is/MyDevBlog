@@ -9,22 +9,24 @@ type Props = {
 const { book, className = '' } = Astro.props;
 ---
 
-<li class={`group relative overflow-hidden rounded-xl cursor-pointer ${className}`.trim()}>
+<li class={`group cursor-pointer ${className}`.trim()}>
   <a href={book.bookUrl} target="_blank" rel="noopener noreferrer" class="block">
+    <div class="sketch-box relative overflow-hidden p-2 transition-transform duration-200 group-hover:-translate-y-1">
     {book.coverUrl ? (
       <img
         src={book.coverUrl}
         alt={`${book.title} cover`}
-        class="h-56 w-full object-cover group-hover:scale-103 transition-transform duration-300"
+        class="aspect-[2/3] w-full object-cover"
         loading="lazy"
       />
     ) : (
-      <div class="h-56 w-full bg-slate-700 flex items-center justify-center text-xs text-slate-400">
+      <div class="flex aspect-[2/3] w-full items-center justify-center bg-[color:var(--ink)] text-xs text-[color:var(--paper)]">
         No cover
       </div>
     )}
-    <div class="absolute bottom-0 inset-x-0 bg-neutral-200/90 dark:bg-neutral-700/90 backdrop-blur-sm p-3 translate-y-2 group-hover:translate-y-0 transition-all duration-300 md:opacity-0 md:group-hover:opacity-100">
-      <p class="text-gray-900 dark:text-white text-xs font-medium line-clamp-2">{book.title}</p>
+    <div class="absolute inset-x-2 bottom-2 bg-[color:var(--paper-soft)] p-3 opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100">
+      <p class="line-clamp-2 text-xs font-bold leading-5 text-[color:var(--ink)]">{book.title}</p>
+    </div>
     </div>
   </a>
 </li>

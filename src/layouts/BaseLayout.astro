@@ -5,6 +5,7 @@ import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 const {pageTitle, customBodyStyle} = Astro.props;
+const title = pageTitle === "Home Page" ? "Israel Bravo" : `${pageTitle} | Israel Bravo`;
 ---
 
 <html lang="en" transition:animate="none">
@@ -13,16 +14,21 @@ const {pageTitle, customBodyStyle} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Israel Bravo's personal journal on software, books, philosophy, and careful craft." />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 		<slot name="head" />
-		<title>{pageTitle}</title>
+		<title>{title}</title>
 		<ClientRouter />
 	</head>
-	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white mx-auto w-full max-w-4xl p-4", customBodyStyle]} style="font-family: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;">
-		<Header transition:persist/>
-		<slot />
-		<Footer transition:persist/>
+	<body class:list={[customBodyStyle]}>
+		<div class="site-shell">
+			<Header transition:persist/>
+			<main class="site-main">
+				<slot />
+			</main>
+			<Footer transition:persist/>
+		</div>
 	</body>
 </html>

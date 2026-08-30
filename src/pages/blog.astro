@@ -11,7 +11,17 @@ const pageTitle = "My Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <h1 class="my-4 text-4xl">{pageTitle}</h1>
-    <Tags />
-    <PostList posts={allPosts} />
+    <section class="space-y-8">
+        <header class="grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.8fr_1fr] md:items-end">
+            <div>
+                <p class="eyebrow">Archive / field notes</p>
+                <h1 class="font-display mt-3 text-5xl font-extrabold leading-none sm:text-7xl">Blog</h1>
+            </div>
+            <p class="text-xl leading-8 text-[color:var(--ink-muted)]">
+                Technical writeups, philosophical notes, and practical fragments from a notebook that refuses to stay in one category.
+            </p>
+        </header>
+        <Tags />
+        <PostList posts={allPosts} />
+    </section>
 </BaseLayout>
