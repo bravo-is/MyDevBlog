@@ -67,7 +67,7 @@ const socialImageUrl = new URL(socialImagePath, siteUrl).href;
         </p>
       )}
       
-      <div class="mt-8 flex flex-wrap gap-3 border-t border-[color:var(--rule)] pt-4 text-sm font-bold uppercase tracking-[0.12em] text-[color:var(--ink-muted)]">
+      <div class="mt-8 flex flex-wrap gap-3 border-t border-[color:var(--rule)] pt-4 text-sm font-bold text-[color:var(--ink-muted)]">
         <span>{frontmatter.author}</span>
         <span class="text-[color:var(--rust)]">/</span>
         <time datetime={postDateTime(frontmatter.pubDate)}>{formattedDate}</time>
@@ -90,7 +90,7 @@ const socialImageUrl = new URL(socialImagePath, siteUrl).href;
       </figure>
     )}
 
-    <div class="prose prose-lg mx-auto max-w-3xl">
+    <div class="prose prose-lg mx-auto max-w-[64ch]">
       <slot />
     </div>
   </article>

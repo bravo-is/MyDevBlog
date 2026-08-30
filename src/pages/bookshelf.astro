@@ -16,13 +16,13 @@ const MAX_VISIBLE_READ = 6;
 
 <BaseLayout pageTitle={pageTitle}>
   <section class="space-y-10">
-    <header class="grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.8fr_1fr] md:items-end">
+    <header class="accent-block grid gap-6 p-6 md:grid-cols-[0.8fr_1fr] md:items-end">
       <div>
-        <p class="eyebrow">Reading ledger</p>
+        <p class="text-base italic">Reading ledger</p>
         <h1 class="font-display mt-3 text-5xl font-extrabold leading-none sm:text-7xl">{pageTitle}</h1>
       </div>
-      <p class="text-xl leading-8 text-[color:var(--ink-muted)]">
-        A tactile catalog of what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="font-semibold text-[color:var(--rust)] underline underline-offset-4 hover:text-[color:var(--ink)]">Hardcover</a>.
+      <p class="max-w-[60ch] text-xl leading-8">
+        A reading ledger of what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4">Hardcover</a>.
       </p>
     </header>
 
@@ -34,7 +34,7 @@ const MAX_VISIBLE_READ = 6;
         {bookshelf.currentlyReading.length === 0 ? (
           <p class="text-[color:var(--ink-muted)]">No current reads.</p>
         ) : (
-          <ul class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <ul class="book-ledger">
             {bookshelf.currentlyReading.map((book) => (
               <BookCard book={book} />
             ))}
@@ -50,7 +50,7 @@ const MAX_VISIBLE_READ = 6;
           <p class="text-[color:var(--ink-muted)]">No completed reads.</p>
         ) : (
           <>
-            <ul class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <ul class="book-ledger">
               {bookshelf.read.map((book, index) => (
                 <BookCard book={book} className={index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''} />
               ))}

@@ -19,7 +19,7 @@ const { posts } = Astro.props;
         <article class="space-y-3">
           <div class="flex flex-wrap gap-2">
             {post.data.tags.slice(0, 3).map((tag) => (
-              <span class="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--sage)]">
+              <span class="text-sm font-bold text-[color:var(--sage)]">
                 {tag}
               </span>
             ))}
@@ -31,7 +31,7 @@ const { posts } = Astro.props;
             {post.data.description}
           </p>
         </article>
-        <time datetime={postDateTime(post.data.pubDate)} class="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--ink-muted)] sm:text-right">
+        <time datetime={postDateTime(post.data.pubDate)} class="text-sm font-semibold text-[color:var(--ink-muted)] sm:text-right">
           {formatPostDate(post.data.pubDate)}
         </time>
       </a>
