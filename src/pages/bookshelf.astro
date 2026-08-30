@@ -16,12 +16,14 @@ const MAX_VISIBLE_READ = 6;
 
 <BaseLayout pageTitle={pageTitle}>
   <section class="space-y-10">
-    <header class="accent-block grid gap-6 p-6 md:grid-cols-[0.8fr_1fr] md:items-end">
+    <header class="grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.8fr_1fr] md:items-end">
       <div>
-        <p class="text-base italic">Reading ledger</p>
-        <h1 class="font-display mt-3 text-5xl font-extrabold leading-none sm:text-7xl">{pageTitle}</h1>
+        <p class="eyebrow">Reading ledger</p>
+        <h1 class="font-display mt-3 text-5xl font-extrabold leading-[1.05] sm:text-7xl">
+          <span class="title-block">{pageTitle}</span>
+        </h1>
       </div>
-      <p class="max-w-[60ch] text-xl leading-8">
+      <p class="max-w-[60ch] text-xl leading-8 text-[color:var(--ink-muted)]">
         A reading ledger of what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4">Hardcover</a>.
       </p>
     </header>

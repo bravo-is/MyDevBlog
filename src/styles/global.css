@@ -142,6 +142,25 @@ a {
   color: inherit;
 }
 
+.title-block {
+  position: relative;
+  top: -0.04em;
+  left: -0.04em;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: #6f1d1b;
+  color: #fbfcf4;
+  padding: 0.03em 0.26em 0.18em 0.12em;
+  line-height: 1.06;
+  box-shadow: 0.12em 0.1em 0 color-mix(in srgb, var(--ink) 22%, var(--paper));
+}
+
+.title-block::selection {
+  background: var(--olive);
+  color: #fbfcf4;
+}
+
 .book-ledger {
   display: grid;
   border-top: 1px solid var(--rule);
