@@ -12,7 +12,8 @@ const {
 	socialImagePath = "/images/social/default-self-card-1200x630.webp",
 	socialImageAlt = "Israel Bravo editorial notebook preview card",
 } = Astro.props;
-const title = pageTitle === "Home Page" ? "Israel Bravo" : `${pageTitle} | Israel Bravo`;
+const isHomePage = Astro.url.pathname === "/";
+const title = isHomePage ? "Israel Bravo" : `${pageTitle} | Israel Bravo`;
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 const socialImageUrl = new URL(socialImagePath, siteUrl).href;
