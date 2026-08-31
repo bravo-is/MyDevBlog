@@ -8,18 +8,20 @@ const lastUpdated:string = "11-Jan-2026";
 
 <BaseLayout pageTitle={pageTitle}>
 	
-	<article>
-		<!-- Header -->
-		<header class="mb-12">
-			<h1 class="my-4 text-4xl">{pageTitle}</h1>
-			<p class="text-sm text-gray-500 dark:text-gray-400">Last updated {lastUpdated}</p>
+	<article class="mx-auto max-w-5xl">
+		<header class="mb-12 grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.75fr_1fr] md:items-end">
+			<div>
+				<p class="eyebrow">Know thyself / revised {lastUpdated}</p>
+				<h1 class="font-display mt-3 text-5xl font-extrabold leading-[1.05] sm:text-7xl">
+					<span class="title-block">{pageTitle}</span>
+				</h1>
+			</div>
 		</header>
 
-		<!-- Content Sections -->
-		<div class="space-y-12">
-			<section>
-				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">For the professionals</h2>
-				<p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+		<div class="grid gap-6">
+			<section class="grid gap-4 border-t border-[color:var(--rule)] py-6 md:grid-cols-[14rem_1fr]">
+				<h2 class="font-display text-3xl font-bold">For the professionals</h2>
+				<p class="max-w-[64ch] text-lg leading-8 text-[color:var(--ink-muted)]">
 					Hello, my name is Israel Bravo and I'm a University of Cincinnati graduate with a Bachelor's degree in Computer Science. 
 					I have experience in native development, full-stack web development, build systems, and the software lifecycle. 
 					I'm currently working as a Software Engineer at Resonant Sciences where I have a variety of responsibilities.
@@ -27,34 +29,34 @@ const lastUpdated:string = "11-Jan-2026";
 				</p>
 			</section>
 
-			<section>
-				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">For the interested</h2>
-				<div class="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+			<section class="grid gap-4 border-t border-[color:var(--rule)] py-6 md:grid-cols-[14rem_1fr]">
+				<h2 class="font-display text-3xl font-bold">For the interested</h2>
+				<div class="max-w-[64ch] space-y-4 text-lg leading-8 text-[color:var(--ink-muted)]">
 					<p>
-						I'm Israel. My hobbies are running, rock climbing, listening to music, cooking and brewing, and playing video games.
-						I enjoy the bar scene and a good beer and book to go along.
+						I'm Israel. I spend my time running, listening to (good) music, cooking, reading, and sightseeing.
+						I enjoy the bar scene with a good beer and book to go along.
 					</p>
 					<p>
-						My interests include philosophy of mind, Buddhism, psychology, ethics, political history/philosophy, and (recently) novels of all sorts.
-						I love meeting new people and good conversation, and I'm keen for different perspectives.
+						My interests include philosophy of mind, Buddhism, ethics, political science/philosophy, and writings of all sorts.
+						I love meeting new people, good conversation, and I'm keen for different perspectives.
 					</p>
 					<p>
-						I'm a naturalist, humanist (vegan), optimist, and a lover of life and learning. I believe that the center of the plate for philosophy is 
+						I'm a naturalist, humanist, vegan, optimist, and a lover of life and learning. I believe that the center of philosophy is 
 						wisdom and the good life.
 					</p>
 				</div>
 			</section>
 
-			<section>
-				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">For my friends and family</h2>
-				<p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+			<section class="grid gap-4 border-t border-[color:var(--rule)] py-6 md:grid-cols-[14rem_1fr]">
+				<h2 class="font-display text-3xl font-bold">For my friends and family</h2>
+				<p class="max-w-[64ch] text-lg leading-8 text-[color:var(--ink-muted)]">
 					You know me well.
 				</p>
 			</section>
 
-			<section>
-				<h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">For the novel seeking</h2>
-				<blockquote class="pl-6 py-4 my-6 border-l-4 border-accent-blue italic text-gray-700 dark:text-gray-300 bg-neutral-50 dark:bg-neutral-700/40 text-lg leading-relaxed">
+			<section class="grid gap-4 border-t border-[color:var(--rule)] py-6 md:grid-cols-[14rem_1fr]">
+				<h2 class="font-display text-3xl font-bold">For the novel seeking</h2>
+				<blockquote class="sketch-box max-w-[64ch] p-6 text-lg italic leading-8 text-[color:var(--ink-muted)]">
 					<p>
 						"For there is a growing apprehension that existence is a rat-race in a trap: living organisms, including people, 
 						are merely tubes which put things in at one end and let them out at the other, which both keeps them doing it and in 
@@ -67,13 +69,13 @@ const lastUpdated:string = "11-Jan-2026";
 						There is a vague rule not to eat tubes of your own form, but in general there is serious competition as to who is going to be
 						 the top type of tube. All this seems marvelously futile, and yet, when you begin to think about it, it begins to be more marvelous than futile."
 					</p>
-					<cite class="block mt-2 text-sm text-gray-600 dark:text-gray-400 not-italic">— Alan Watts</cite>
+					<cite class="mt-4 block text-sm font-bold text-[color:var(--rust)] not-italic">Alan Watts</cite>
 				</blockquote>
 			</section>
 
-			<section>
-				<h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">For those asking themselves the same question</h2>
-				<blockquote class="pl-6 py-4 my-6 border-l-4 border-accent-blue italic text-gray-700 dark:text-gray-300 bg-neutral-50 dark:bg-neutral-700/40 text-lg leading-relaxed">
+			<section class="grid gap-4 border-t border-[color:var(--rule)] py-6 md:grid-cols-[14rem_1fr]">
+				<h2 class="font-display text-3xl font-bold">For those asking themselves the same question</h2>
+				<blockquote class="sketch-box max-w-[64ch] p-6 text-lg italic leading-8 text-[color:var(--ink-muted)]">
 					<p>
 						"What actually happened was something absurdly simple and unspectacular: I stopped thinking. [...] Reason and imagination and all mental chatter died down. 
 						For once, words really failed me. Past and future dropped away. I forgot who and what I was, my name, manhood, animalhood, all that could be called mine. 
@@ -86,7 +88,7 @@ const lastUpdated:string = "11-Jan-2026";
 						It was a vast emptiness vastly filled, a nothing that found room for everything—room for grass, trees, shadowy distant hills, and far above them snowpeaks like 
 						a row of angular clouds riding the blue sky. I had lost a head and gained a world."
 					</p>
-					<cite class="block mt-2 text-sm text-gray-600 dark:text-gray-400 not-italic">― Douglas Harding, On Having No Head</cite>
+					<cite class="mt-4 block text-sm font-bold text-[color:var(--rust)] not-italic">Douglas Harding, On Having No Head</cite>
 				</blockquote>
 			</section>
 		</div>

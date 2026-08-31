@@ -22,7 +22,14 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <h1 class="my-4 text-4xl">Posts about {tag}</h1>
-  <Tags />
-  <PostList posts={posts} />
+  <section class="space-y-8">
+    <header class="border-b border-[color:var(--rule)] pb-8">
+      <p class="eyebrow">Filtered archive</p>
+      <h1 class="font-display mt-3 text-5xl font-extrabold leading-[1.05] sm:text-7xl">
+        <span class="title-block">Posts about {tag}</span>
+      </h1>
+    </header>
+    <Tags />
+    <PostList posts={posts} />
+  </section>
 </BaseLayout>

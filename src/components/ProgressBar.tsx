@@ -22,7 +22,7 @@ export default function ProgressBar() {
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="h-1 bg-[linear-gradient(90deg,hsl(30_100%_50%),hsl(30_100%_70%))] dark:bg-[linear-gradient(90deg,hsl(265_55%_30%),hsl(265_55%_60%))]" />
+      <div className="h-1 bg-[color:var(--rust)]" />
     </motion.div>
   );
 }

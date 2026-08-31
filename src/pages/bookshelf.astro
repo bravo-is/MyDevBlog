@@ -15,21 +15,28 @@ const MAX_VISIBLE_READ = 6;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section class="space-y-6">
-    <header>
-      <h1 class="my-4 text-4xl">{pageTitle}</h1>
-      <p class="text-lg text-gray-700 dark:text-gray-300">
-        A look at what I'm reading and what I've read, provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="text-accent-blue underline underline-offset-2 font-medium hover:opacity-80">Hardcover</a>.
+  <section class="space-y-10">
+    <header class="grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.8fr_1fr] md:items-end">
+      <div>
+        <p class="eyebrow">Paper Trail</p>
+        <h1 class="font-display mt-3 text-5xl font-extrabold leading-[1.05] sm:text-7xl">
+          <span class="title-block">{pageTitle}</span>
+        </h1>
+      </div>
+      <p class="max-w-[60ch] text-xl leading-8 text-[color:var(--ink-muted)]">
+        Evidence of what I'm reading and what I've read. Provided by <a href="https://hardcover.app/home" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4">Hardcover</a>.
       </p>
     </header>
 
-    <div class="grid gap-10">
-      <section class="space-y-4">
-        <h2 class="text-2xl font-semibold">Currently Reading</h2>
+    <div class="grid gap-12">
+      <section class="space-y-5">
+        <div class="editorial-rule pt-5">
+          <h2 class="font-display text-3xl font-bold">Currently Reading</h2>
+        </div>
         {bookshelf.currentlyReading.length === 0 ? (
-          <p class="text-slate-600 dark:text-slate-400">No current reads.</p>
+          <p class="text-[color:var(--ink-muted)]">No current reads.</p>
         ) : (
-          <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <ul class="book-ledger">
             {bookshelf.currentlyReading.map((book) => (
               <BookCard book={book} />
             ))}
@@ -37,13 +44,15 @@ const MAX_VISIBLE_READ = 6;
         )}
       </section>
 
-      <section class="space-y-4">
-        <h2 class="text-2xl font-semibold">Read</h2>
+      <section class="space-y-5">
+        <div class="editorial-rule pt-5">
+          <h2 class="font-display text-3xl font-bold">Read</h2>
+        </div>
         {bookshelf.read.length === 0 ? (
-          <p class="text-slate-600 dark:text-slate-400">No completed reads.</p>
+          <p class="text-[color:var(--ink-muted)]">No completed reads.</p>
         ) : (
           <>
-            <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <ul class="book-ledger">
               {bookshelf.read.map((book, index) => (
                 <BookCard book={book} className={index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''} />
               ))}
@@ -51,7 +60,7 @@ const MAX_VISIBLE_READ = 6;
             {bookshelf.read.length > MAX_VISIBLE_READ && (
               <button
                 type="button"
-                class="text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
+                class="tag-chip cursor-pointer"
                 id="read-toggle"
               >
                 show all
