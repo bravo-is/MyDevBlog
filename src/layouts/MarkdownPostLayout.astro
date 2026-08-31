@@ -6,7 +6,7 @@ import { formatPostDate, postDateTime } from "../lib/dates";
 const formattedDate = formatPostDate(frontmatter.pubDate);
 
 const featuredImage = frontmatter.image?.url ? frontmatter.image : undefined;
-const fallbackImagePath = "/images/social/default-self-card-1200x630.webp";
+const fallbackImagePath = "/images/social/default-editorial-card-1200x630.webp";
 const socialImagePath = frontmatter.image?.url ?? fallbackImagePath;
 const socialImageAlt = frontmatter.image?.alt ?? "Israel Bravo's blog preview image";
 ---
