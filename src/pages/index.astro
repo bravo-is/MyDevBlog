@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import selfImage from '../assets/self-upright.jpeg';
+import selfImage from '../assets/homepage-portrait.jpg';
 const pageTitle = "Home Page";
 ---
 
@@ -18,17 +18,21 @@ const pageTitle = "Home Page";
 			</div>
 
 			<div class="border-b border-[color:var(--rule)]">
+				<a href="/about" class="index-row">
+					<span class="eyebrow">Know thyself</span>
+					<span class="index-title font-display text-3xl font-bold">About me</span>
+				</a>
 				<a href="/blog" class="index-row">
-					<span class="eyebrow">Read</span>
-					<span class="index-title font-display text-3xl font-bold">Essays & notes</span>
+					<span class="eyebrow">Ramblings</span>
+					<span class="index-title font-display text-3xl font-bold">Blog posts</span>
 				</a>
 				<a href="/bookshelf" class="index-row">
-					<span class="eyebrow">Browse</span>
+					<span class="eyebrow">Contraband</span>
 					<span class="index-title font-display text-3xl font-bold">Bookshelf</span>
 				</a>
-				<a href="/about" class="index-row">
-					<span class="eyebrow">Meet</span>
-					<span class="index-title font-display text-3xl font-bold">About me</span>
+				<a href="/images" class="index-row">
+					<span class="eyebrow">Look twice</span>
+					<span class="index-title font-display text-3xl font-bold">Seeing Things</span>
 				</a>
 			</div>
 		</div>

@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#111827" />
-  <text x="32" y="40" text-anchor="middle" font-family="serif" font-size="28" font-weight="600" fill="#F9FAFB">IB</text>
+  <text
+    x="32"
+    y="48"
+    text-anchor="middle"
+    font-family="Bodoni 72, Didot, Georgia, serif"
+    font-size="48"
+    font-weight="700"
+    font-style="italic"
+    letter-spacing="-2"
+    fill="#6f1d1b"
+  >IB</text>
 </svg>
