@@ -219,6 +219,14 @@ a {
   font-style: italic;
 }
 
+.image-soundtrack {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  margin-top: 0.35rem;
+  border: 0;
+}
+
 .hand-underline {
   border-bottom: 0.18em solid color-mix(in srgb, var(--ochre) 62%, transparent);
   box-decoration-break: clone;

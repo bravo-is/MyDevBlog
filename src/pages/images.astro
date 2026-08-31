@@ -4,6 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { seenThings } from '../lib/seen-things';
 
 const pageTitle = 'Seeing Things';
+
+const spotifyEmbedUrl = (url: string) => {
+  const trackId = url.match(/track\/([^?]+)/)?.[1];
+  return trackId ? `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0` : null;
+};
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -16,7 +21,7 @@ const pageTitle = 'Seeing Things';
         </h1>
       </div>
       <p class="max-w-[60ch] text-xl leading-8 text-[color:var(--ink-muted)]">
-        Small visual records: stray compositions, reflected surfaces, travel fragments, and pictures that asked to be kept.
+        Composition. An audio-visual record. A collection of things seen, heard, and felt. Have a look around.
       </p>
     </header>
 
@@ -39,6 +44,18 @@ const pageTitle = 'Seeing Things';
                 {entry.location && <p class="image-location">{entry.location}</p>}
                 {entry.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
               </div>
+            )}
+            {entry.spotifyTrack && spotifyEmbedUrl(entry.spotifyTrack.url) && (
+              <iframe
+                class="image-soundtrack"
+                src={spotifyEmbedUrl(entry.spotifyTrack.url)!}
+                title={entry.spotifyTrack.title}
+                width="100%"
+                height="80"
+                frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
             )}
           </div>
         </li>
