@@ -47,17 +47,168 @@ const socialImageUrl = new URL(socialImagePath, siteUrl).href;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+		<script is:inline data-astro-rerun>
+			(() => {
+				try {
+					const storedTheme = localStorage.getItem('theme');
+					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : prefersDark);
+				} catch {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script>
 		<slot name="head" />
 		<title>{title}</title>
 		<ClientRouter />
 	</head>
 	<body class:list={[customBodyStyle]}>
 		<div class="site-shell">
-			<Header transition:persist/>
+			<Header />
 			<main class="site-main">
 				<slot />
 			</main>
-			<Footer transition:persist/>
+			<Footer />
 		</div>
+		<script is:inline data-astro-rerun>
+			(() => {
+				const storedTheme = () => {
+					try {
+						const theme = localStorage.getItem('theme');
+						if (theme === 'dark' || theme === 'light') {
+							return theme;
+						}
+					} catch {
+						return 'light';
+					}
+
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				};
+
+				const setStoredTheme = (theme) => {
+					try {
+						localStorage.setItem('theme', theme);
+					} catch {
+						/* Theme still applies for this page even when storage is unavailable. */
+					}
+				};
+
+				const syncThemeButton = () => {
+					const themeToggle = document.getElementById('themeToggle');
+					themeToggle?.setAttribute('aria-pressed', String(document.documentElement.classList.contains('dark')));
+				};
+
+				const applyTheme = (theme, doc = document) => {
+					doc.documentElement.classList.toggle('dark', theme === 'dark');
+					if (doc === document) {
+						syncThemeButton();
+					}
+				};
+
+				const setMenuOpen = (isOpen) => {
+					const menuButton = document.getElementById('mobile-menu-button');
+					const navLinks = document.getElementById('mobile-nav');
+					const hamburger = menuButton?.querySelector('[data-menu-icon]');
+					const close = menuButton?.querySelector('[data-close-icon]');
+
+					if (!menuButton || !navLinks || !hamburger || !close) {
+						return;
+					}
+
+					menuButton.setAttribute('aria-expanded', String(isOpen));
+					navLinks.classList.toggle('hidden', !isOpen);
+					hamburger.classList.toggle('hidden', isOpen);
+					close.classList.toggle('hidden', !isOpen);
+				};
+
+				const syncChrome = () => {
+					applyTheme(storedTheme());
+					setMenuOpen(false);
+				};
+
+				syncChrome();
+
+				if (window.__siteChromeBound) {
+					return;
+				}
+
+				window.__siteChromeBound = true;
+				let lastPointerHandledAt = 0;
+
+				const handleControlAction = (target) => {
+					const themeToggle = target.closest('#themeToggle');
+					if (themeToggle) {
+						const theme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+						setStoredTheme(theme);
+						applyTheme(theme);
+						return true;
+					}
+
+					const menuButton = target.closest('#mobile-menu-button');
+					if (menuButton) {
+						setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+						return true;
+					}
+
+					return false;
+				};
+
+				document.addEventListener('pointerdown', (event) => {
+					if (!(event.target instanceof Element)) {
+						return;
+					}
+
+					if (handleControlAction(event.target)) {
+						lastPointerHandledAt = performance.now();
+						event.preventDefault();
+						event.stopPropagation();
+					}
+				}, { capture: true });
+
+				document.addEventListener('click', (event) => {
+					if (!(event.target instanceof Element)) {
+						return;
+					}
+
+					if (
+						(event.target.closest('#themeToggle') || event.target.closest('#mobile-menu-button')) &&
+						performance.now() - lastPointerHandledAt < 700
+					) {
+						event.preventDefault();
+						event.stopPropagation();
+						return;
+					}
+
+					if (handleControlAction(event.target)) {
+						return;
+					}
+
+					if (event.target.closest('#mobile-nav a')) {
+						setMenuOpen(false);
+					}
+				}, { capture: true });
+
+				document.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape') {
+						setMenuOpen(false);
+					}
+				});
+
+				document.addEventListener('astro:before-swap', (event) => {
+					applyTheme(storedTheme(), event.newDocument);
+					setMenuOpen(false);
+				});
+
+				document.addEventListener('astro:after-swap', syncChrome);
+				document.addEventListener('astro:page-load', syncChrome);
+				window.addEventListener('pageshow', syncChrome);
+
+				window.matchMedia('(min-width: 640px)').addEventListener('change', (event) => {
+					if (event.matches) {
+						setMenuOpen(false);
+					}
+				});
+			})();
+		</script>
 	</body>
 </html>
