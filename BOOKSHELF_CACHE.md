@@ -13,7 +13,8 @@ This project fetches book data from the Hardcover API. To ensure builds don't fa
 ### For Local Development
 ```bash
 npm run dev
-# The API is called on every build, fresh data each time
+# Bookshelf data is read from Netlify Blobs when available,
+# with a local JSON cache fallback when API-backed data is unavailable
 ```
 
 ### Before Deploying to Netlify
@@ -30,12 +31,11 @@ git push
 ```
 
 ### Netlify Build Process
-The `netlify.toml` automatically runs:
-1. `npm run update:bookshelf` - Attempts to fetch fresh data from Hardcover API
-2. `npm run build` - Builds your site
-   - If step 1 succeeds: Uses fresh data
-   - If step 1 fails: Falls back to cached data automatically
-   - **Build never fails** due to API issues ✅
+The `netlify.toml` build command runs:
+1. `npm run build` - Builds your site
+   - At runtime, bookshelf data is served from Netlify Blobs
+   - If Blob/API-backed data is unavailable, the site falls back to `src/lib/bookshelf.cache.json`
+   - **Build does not depend on calling the Hardcover API** ✅
 
 ## Requirements
 

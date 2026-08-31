@@ -11,7 +11,19 @@ const pageTitle = "My Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <h1 class="my-4 text-4xl">{pageTitle}</h1>
-    <Tags />
-    <PostList posts={allPosts} />
+    <section class="space-y-8">
+        <header class="grid gap-6 border-b border-[color:var(--rule)] pb-8 md:grid-cols-[0.8fr_1fr] md:items-end">
+            <div>
+                <p class="eyebrow">Ramblings</p>
+                <h1 class="font-display mt-3 text-5xl font-extrabold leading-[1.05] sm:text-7xl">
+                    <span class="title-block">Blog</span>
+                </h1>
+            </div>
+            <p class="text-xl leading-8 text-[color:var(--ink-muted)]">
+                Technical explainers, recapitulations of books and articles, and a catalog of my own thoughts.
+            </p>
+        </header>
+        <Tags />
+        <PostList posts={allPosts} />
+    </section>
 </BaseLayout>

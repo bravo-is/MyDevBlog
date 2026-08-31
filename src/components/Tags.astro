@@ -11,29 +11,23 @@ const uniqueTags = Object.keys(tagCounts);
 const ShownTagsMax = 7;
 ---
 
-<div class="flex flex-wrap">
-  <a href="/blog" class="max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block">
-    <p>all</p>
+<div class="flex flex-wrap gap-2">
+  <a href="/blog" class="tag-chip">
+    <span>all</span>
   </a>
   {uniqueTags.map((tag, index) => (
     <a 
       href={`/tags/${tag}`} 
-      class={`"max-w-fit m-1 rounded-md px-4 py-2 text-sm text-nowrap text-gray-500 dark:text-gray-400 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 inline-block" ${index >= ShownTagsMax ? 'hidden extra-tag' : ''}`}
+      class={`tag-chip ${index >= ShownTagsMax ? 'hidden extra-tag' : ''}`}
     >
-      <div class="flex items-center gap-2">
-        <p>
-          {tag}
-        </p>
-        <span class="text-xs font-medium bg-neutral-300 dark:bg-neutral-600 text-gray-700 dark:text-gray-300 rounded-full px-2.5 py-0.5">
-          {tagCounts[tag]}
-        </span>
-      </div>
+      <span>{tag}</span>
+      <span class="tag-count">{tagCounts[tag]}</span>
     </a>
   ))}
   {uniqueTags.length > ShownTagsMax && (
     <button
       type="button"
-      class="m-1 text-sm underline text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100"
+      class="tag-chip cursor-pointer"
       id="tag-toggle"
     >
       show all

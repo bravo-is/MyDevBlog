@@ -1,7 +1,7 @@
 import { motion, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
 
-export default function ScorllSection() {
+export default function ProgressBar() {
   const { scrollYProgress } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -22,7 +22,7 @@ export default function ScorllSection() {
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="h-1 bg-[linear-gradient(90deg,hsl(30_100%_50%),hsl(30_100%_70%))] dark:bg-[linear-gradient(90deg,hsl(265_55%_30%),hsl(265_55%_60%))]" />
+      <div className="h-1 bg-[color:var(--rust)]" />
     </motion.div>
   );
 }

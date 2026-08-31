@@ -1,28 +1,10 @@
 ---
 ---
-<div class="menu cursor-pointer sm:hidden">
-    <!-- Hamburger icon, visible by default -->
-    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hamburger size-10">
+<button id="mobile-menu-button" type="button" class="menu grid size-10 place-items-center border border-[color:var(--rule)] bg-[color:var(--paper-soft)] text-[color:var(--ink)] sm:hidden" aria-label="Toggle navigation" aria-controls="mobile-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hamburger size-7" data-menu-icon>
         <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.75h-16.5M20.25 12h-16.5M12 17.25h-8.25" />
     </svg>
-    <!-- Close icon, hidden by default -->
-    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close hidden size-10">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close hidden size-7" data-close-icon>
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
     </svg>            
-</div>
-
-<script>
-    // Listen for Astro's page load event to ensure the DOM is ready
-    document.addEventListener('astro:page-load', () => {
-        // Toggle navigation visibility on menu click
-        document.querySelector('.menu')?.addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links'); // Navigation links container
-            const hamburger = document.querySelector('.hamburger'); // Hamburger icon
-            const close = document.querySelector('.close'); // Close icon
-            // Toggle the 'hidden' class to show/hide elements
-            navLinks?.classList.toggle('hidden');
-            hamburger?.classList.toggle('hidden');
-            close?.classList.toggle('hidden');
-        });
-    });
-</script>
+</button>

@@ -2,8 +2,21 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 
-const {pageTitle, customBodyStyle} = Astro.props;
+const {
+	pageTitle,
+	customBodyStyle,
+	pageDescription = "Israel Bravo's personal journal on software, books, philosophy, and careful craft.",
+	ogType = "website",
+	socialImagePath = "/images/social/default-editorial-card-1200x630.webp",
+	socialImageAlt = "Israel Bravo editorial notebook preview card",
+} = Astro.props;
+const isHomePage = Astro.url.pathname === "/";
+const title = isHomePage ? "Israel Bravo" : `${pageTitle} | Israel Bravo`;
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
+const socialImageUrl = new URL(socialImagePath, siteUrl).href;
 ---
 
 <html lang="en" transition:animate="none">
@@ -12,16 +25,190 @@ const {pageTitle, customBodyStyle} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<link rel="canonical" href={pageUrl} />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:site_name" content="Israel Bravo" />
+		<meta property="og:url" content={pageUrl} />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:image:url" content={socialImageUrl} />
+		<meta property="og:image:secure_url" content={socialImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={socialImageAlt} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:url" content={pageUrl} />
+		<meta name="twitter:image" content={socialImageUrl} />
+		<meta name="twitter:image:alt" content={socialImageAlt} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+		<script is:inline data-astro-rerun>
+			(() => {
+				try {
+					const storedTheme = localStorage.getItem('theme');
+					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : prefersDark);
+				} catch {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script>
 		<slot name="head" />
-		<title>{pageTitle}</title>
+		<title>{title}</title>
 		<ClientRouter />
 	</head>
-	<body class:list={["bg-neutral-100 text-gray-900 dark:bg-neutral-800 dark:text-white mx-auto w-full max-w-4xl p-4", customBodyStyle]} style="font-family: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;">
-		<Header transition:persist/>
-		<slot />
-		<Footer transition:persist/>
+	<body class:list={[customBodyStyle]}>
+		<div class="site-shell">
+			<Header />
+			<main class="site-main">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+		<script is:inline data-astro-rerun>
+			(() => {
+				const storedTheme = () => {
+					try {
+						const theme = localStorage.getItem('theme');
+						if (theme === 'dark' || theme === 'light') {
+							return theme;
+						}
+					} catch {
+						return 'light';
+					}
+
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				};
+
+				const setStoredTheme = (theme) => {
+					try {
+						localStorage.setItem('theme', theme);
+					} catch {
+						/* Theme still applies for this page even when storage is unavailable. */
+					}
+				};
+
+				const syncThemeButton = () => {
+					const themeToggle = document.getElementById('themeToggle');
+					themeToggle?.setAttribute('aria-pressed', String(document.documentElement.classList.contains('dark')));
+				};
+
+				const applyTheme = (theme, doc = document) => {
+					doc.documentElement.classList.toggle('dark', theme === 'dark');
+					if (doc === document) {
+						syncThemeButton();
+					}
+				};
+
+				const setMenuOpen = (isOpen) => {
+					const menuButton = document.getElementById('mobile-menu-button');
+					const navLinks = document.getElementById('mobile-nav');
+					const hamburger = menuButton?.querySelector('[data-menu-icon]');
+					const close = menuButton?.querySelector('[data-close-icon]');
+
+					if (!menuButton || !navLinks || !hamburger || !close) {
+						return;
+					}
+
+					menuButton.setAttribute('aria-expanded', String(isOpen));
+					navLinks.classList.toggle('hidden', !isOpen);
+					hamburger.classList.toggle('hidden', isOpen);
+					close.classList.toggle('hidden', !isOpen);
+				};
+
+				const syncChrome = () => {
+					applyTheme(storedTheme());
+					setMenuOpen(false);
+				};
+
+				syncChrome();
+
+				if (window.__siteChromeBound) {
+					return;
+				}
+
+				window.__siteChromeBound = true;
+				let lastPointerHandledAt = 0;
+
+				const handleControlAction = (target) => {
+					const themeToggle = target.closest('#themeToggle');
+					if (themeToggle) {
+						const theme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+						setStoredTheme(theme);
+						applyTheme(theme);
+						return true;
+					}
+
+					const menuButton = target.closest('#mobile-menu-button');
+					if (menuButton) {
+						setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+						return true;
+					}
+
+					return false;
+				};
+
+				document.addEventListener('pointerdown', (event) => {
+					if (!(event.target instanceof Element)) {
+						return;
+					}
+
+					if (handleControlAction(event.target)) {
+						lastPointerHandledAt = performance.now();
+						event.preventDefault();
+						event.stopPropagation();
+					}
+				}, { capture: true });
+
+				document.addEventListener('click', (event) => {
+					if (!(event.target instanceof Element)) {
+						return;
+					}
+
+					if (
+						(event.target.closest('#themeToggle') || event.target.closest('#mobile-menu-button')) &&
+						performance.now() - lastPointerHandledAt < 700
+					) {
+						event.preventDefault();
+						event.stopPropagation();
+						return;
+					}
+
+					if (handleControlAction(event.target)) {
+						return;
+					}
+
+					if (event.target.closest('#mobile-nav a')) {
+						setMenuOpen(false);
+					}
+				}, { capture: true });
+
+				document.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape') {
+						setMenuOpen(false);
+					}
+				});
+
+				document.addEventListener('astro:before-swap', (event) => {
+					applyTheme(storedTheme(), event.newDocument);
+					setMenuOpen(false);
+				});
+
+				document.addEventListener('astro:after-swap', syncChrome);
+				document.addEventListener('astro:page-load', syncChrome);
+				window.addEventListener('pageshow', syncChrome);
+
+				window.matchMedia('(min-width: 640px)').addEventListener('change', (event) => {
+					if (event.matches) {
+						setMenuOpen(false);
+					}
+				});
+			})();
+		</script>
 	</body>
 </html>

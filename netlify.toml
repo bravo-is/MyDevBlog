@@ -1,6 +1,9 @@
 [build]
-  command = "npm run update:bookshelf; npm run build"
+  command = "npm run build"
   publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
 
 [env.production]
   # Add a longer timeout for the build to accommodate API requests

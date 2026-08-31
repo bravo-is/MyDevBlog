@@ -1,5 +1,7 @@
 # build output
 dist/
+.netlify/
+substack-export/
 # generated types
 .astro/
 

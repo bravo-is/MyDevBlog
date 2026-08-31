@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ece8d8" />
+  <rect x="32" y="32" width="1136" height="566" fill="none" stroke="#8f8875" stroke-width="2" opacity="0.55" />
+  <rect x="79" y="74" width="1042" height="482" fill="#d9dcc5" stroke="#8f8875" stroke-width="2" />
+  <rect x="160" y="210" width="620" height="148" fill="#bfb7a0" />
+  <rect x="139" y="188" width="620" height="148" fill="#6f1d1b" />
+  <text x="175" y="288" font-family="Bodoni 72, Bodoni MT, Didot, Georgia, serif" font-size="92" font-weight="700" fill="#fbfcf4">Israel Bravo</text>
+  <text x="146" y="408" font-family="Lora, Georgia, serif" font-size="36" fill="#2a2119">Meditations, observations, and daily life.</text>
+  <text x="146" y="484" font-family="Lora, Georgia, serif" font-size="27" font-style="italic" fill="#6f1d1b">field notes.</text>
+</svg>

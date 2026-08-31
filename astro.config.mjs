@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-
+import netlify from '@astrojs/netlify';
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react()],
+  adapter: netlify(),
+  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   site: "https://israelbravo.com"
 });

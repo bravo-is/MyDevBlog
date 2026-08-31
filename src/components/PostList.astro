@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { formatPostDate, postDateTime } from "../lib/dates";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
@@ -8,30 +9,31 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul class="space-y-6">
-  {posts.map((post) => (
-    <li class="group border border-neutral-300 dark:border-neutral-700 rounded-lg p-6 hover:shadow-md hover:border-neutral-400 dark:hover:border-neutral-600">
-      <a href={`/posts/${post.slug}/`} class="block">
-        <article class="space-y-2">
-          <h1 class="text-2xl font-semibold decoration-2 group-hover:underline">
-            {post.data.title}
-          </h1>
-          <div class="flex justify-between items-center">
-            <time class="text-sm text-gray-500 dark:text-gray-400">
-              {new Date(post.data.pubDate).toLocaleDateString()}
-            </time>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300">
-            {post.data.description}
-          </p>
-          <div class="flex flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400">
-            {post.data.tags.map((tag) => (
-              <span class="bg-neutral-200 dark:bg-neutral-700 px-2 py-1 rounded">
+<ul class="grid border-t border-[color:var(--rule)]">
+  {posts.map((post, index) => (
+    <li class="group border-b border-[color:var(--rule)]">
+      <a href={`/posts/${post.id}/`} class="grid gap-5 py-6 transition-colors hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)_9rem] sm:px-4">
+        <p class="font-display text-4xl font-bold leading-none text-[color:var(--rust)]">
+          {String(index + 1).padStart(2, '0')}
+        </p>
+        <article class="space-y-3">
+          <div class="flex flex-wrap gap-2">
+            {post.data.tags.slice(0, 3).map((tag) => (
+              <span class="text-sm font-bold text-[color:var(--sage)]">
                 {tag}
               </span>
             ))}
           </div>
+          <h2 class="font-display text-3xl font-bold leading-tight decoration-[color:var(--rust)] underline-offset-4 group-hover:underline sm:text-4xl">
+            {post.data.title}
+          </h2>
+          <p class="max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)]">
+            {post.data.description}
+          </p>
         </article>
+        <time datetime={postDateTime(post.data.pubDate)} class="text-sm font-semibold text-[color:var(--ink-muted)] sm:text-right">
+          {formatPostDate(post.data.pubDate)}
+        </time>
       </a>
     </li>
   ))}
