@@ -225,6 +225,10 @@ a {
   max-width: 24rem;
   margin-top: 0.35rem;
   border: 0;
+  border-radius: 0.65rem;
+  background: #121212;
+  clip-path: inset(5px round 0.65rem);
+  overflow: hidden;
 }
 
 .hand-underline {

@@ -10,7 +10,7 @@ const { book, className = '' } = Astro.props;
 ---
 
 <li class={`border-b border-[color:var(--rule)] ${className}`.trim()}>
-  <a href={book.bookUrl} target="_blank" rel="noopener noreferrer" class="grid grid-cols-[4.25rem_minmax(0,1fr)] items-center gap-4 py-4 hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)_8rem] sm:px-3">
+  <a href={book.bookUrl} target="_blank" rel="noopener noreferrer" class="grid grid-cols-[4.25rem_minmax(0,1fr)] items-center gap-4 py-4 hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)] sm:px-3">
     {book.coverUrl ? (
       <img
         src={book.coverUrl}
@@ -24,6 +24,5 @@ const { book, className = '' } = Astro.props;
       </div>
     )}
     <p class="font-display text-xl font-bold leading-8 text-[color:var(--ink)] sm:text-2xl sm:leading-9">{book.title}</p>
-    <span class="hidden text-right text-sm italic text-[color:var(--ink-muted)] sm:block">Hardcover</span>
   </a>
 </li>
