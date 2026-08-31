@@ -24,12 +24,20 @@ import ProgressBar from './ProgressBar.tsx';
 <script>
     document.addEventListener('astro:page-load', () => {
         const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
+        if (!header || header.getAttribute('data-scroll-bound') === 'true') {
+            return;
+        }
+
+        header.setAttribute('data-scroll-bound', 'true');
+        const onScroll = () => {
             if (window.scrollY > 100) {
-            header?.classList.add('border-[color:var(--ink)]');
+                header.classList.add('border-[color:var(--ink)]');
             } else {
-            header?.classList.remove('border-[color:var(--ink)]');
+                header.classList.remove('border-[color:var(--ink)]');
             }
-        });
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     });
 </script>

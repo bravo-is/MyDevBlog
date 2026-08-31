@@ -11,7 +11,13 @@
 
 <script>
     document.addEventListener('astro:page-load', () => {
-        document.querySelector('.menu')?.addEventListener('click', function() {
+        const menuButton = document.querySelector('.menu');
+        if (!menuButton || menuButton.getAttribute('data-bound') === 'true') {
+            return;
+        }
+
+        menuButton.setAttribute('data-bound', 'true');
+        menuButton.addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             const hamburger = document.querySelector('.hamburger');
             const close = document.querySelector('.close');
