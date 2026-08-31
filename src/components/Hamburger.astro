@@ -1,29 +1,73 @@
 ---
 ---
-<button type="button" class="menu grid size-10 place-items-center border border-[color:var(--rule)] bg-[color:var(--paper-soft)] text-[color:var(--ink)] sm:hidden" aria-label="Toggle navigation">
-    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hamburger size-7">
+<button id="mobile-menu-button" type="button" class="menu grid size-10 place-items-center border border-[color:var(--rule)] bg-[color:var(--paper-soft)] text-[color:var(--ink)] sm:hidden" aria-label="Toggle navigation" aria-controls="mobile-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hamburger size-7" data-menu-icon>
         <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.75h-16.5M20.25 12h-16.5M12 17.25h-8.25" />
     </svg>
-    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close hidden size-7">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close hidden size-7" data-close-icon>
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
     </svg>            
 </button>
 
-<script>
-    document.addEventListener('astro:page-load', () => {
-        const menuButton = document.querySelector('.menu');
-        if (!menuButton || menuButton.getAttribute('data-bound') === 'true') {
-            return;
-        }
+<script is:inline>
+    (() => {
+        const setOpen = (isOpen) => {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const navLinks = document.getElementById('mobile-nav');
+            const hamburger = menuButton?.querySelector('[data-menu-icon]');
+            const close = menuButton?.querySelector('[data-close-icon]');
 
-        menuButton.setAttribute('data-bound', 'true');
-        menuButton.addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
-            const close = document.querySelector('.close');
-            navLinks?.classList.toggle('hidden');
-            hamburger?.classList.toggle('hidden');
-            close?.classList.toggle('hidden');
-        });
-    });
+            if (!menuButton || !navLinks || !hamburger || !close) {
+                return;
+            }
+
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            navLinks.classList.toggle('hidden', !isOpen);
+            hamburger.classList.toggle('hidden', isOpen);
+            close.classList.toggle('hidden', !isOpen);
+        };
+
+        const bindMobileMenu = () => {
+            setOpen(false);
+
+            if (window.__mobileMenuBound) {
+                return;
+            }
+
+            window.__mobileMenuBound = true;
+
+            document.addEventListener('click', (event) => {
+                if (!(event.target instanceof Element)) {
+                    return;
+                }
+
+                const menuButton = event.target.closest('#mobile-menu-button');
+                if (menuButton) {
+                    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+                    setOpen(!isOpen);
+                    return;
+                }
+
+                if (event.target.closest('#mobile-nav a')) {
+                    setOpen(false);
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setOpen(false);
+                }
+            });
+
+            window.matchMedia('(min-width: 640px)').addEventListener('change', (event) => {
+                if (event.matches) {
+                    setOpen(false);
+                }
+            });
+        };
+
+        document.addEventListener('astro:page-load', bindMobileMenu);
+        document.addEventListener('astro:after-swap', bindMobileMenu);
+        bindMobileMenu();
+    })();
 </script>
