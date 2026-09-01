@@ -181,11 +181,11 @@ a {
 .image-ledger {
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
-  counter-reset: seen-things;
+  counter-reset: seeing-things;
 }
 
 .image-entry {
-  counter-increment: seen-things;
+  counter-increment: seeing-things;
   display: grid;
   gap: 1.25rem;
   border-top: 1px solid var(--rule);
@@ -201,7 +201,7 @@ a {
 }
 
 .image-frame::after {
-  content: counter(seen-things, decimal-leading-zero);
+  content: counter(seeing-things, decimal-leading-zero);
   position: absolute;
   right: 0.7rem;
   bottom: 0.55rem;
