@@ -20,7 +20,7 @@ export const seenThings: SeenThing[] = [
     image: windowReflection,
     alt: 'A reflected self portrait in a window with books and city light visible through the glass.',
     location: 'Tokyo',
-    note: '"the soul lives"',
+    note: '"The soul lives"',
     paragraphs: [
       'A bustling city, cars, and hurried people. All of us occupying the same thin plane.',
     ],
