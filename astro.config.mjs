@@ -1,18 +1,12 @@
 import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify';
-import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
+
+const isDevCommand = process.argv.includes('dev');
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: netlify({
-    devFeatures: {
-      environmentVariables: false,
-      edgeFunctions: false,
-      images: true,
-    },
-  }),
-  integrations: [react()],
+  ...(isDevCommand ? {} : { adapter: netlify() }),
   vite: {
     plugins: [tailwindcss()],
   },

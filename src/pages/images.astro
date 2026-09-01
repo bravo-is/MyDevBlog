@@ -11,6 +11,7 @@ const seeingThings = await Promise.all(
     .map(async (entry) => ({
       ...entry,
       Content: (await render(entry)).Content,
+      hasBody: (entry.body ?? '').trim().length > 0,
     }))
 );
 
@@ -57,10 +58,10 @@ const spotifyEmbedUrl = (url: string) => {
                   {entry.data.title}
                 </a>
               </h2>
-              {(entry.data.location || Content) && (
+              {(entry.data.location || entry.hasBody) && (
                 <div class="space-y-4 text-lg leading-8 text-[color:var(--ink-muted)]">
                   {entry.data.location && <p class="image-location">{entry.data.location}</p>}
-                  <Content />
+                  {entry.hasBody && <Content />}
                 </div>
               )}
               {entry.data.spotifyTrack && embedUrl && (

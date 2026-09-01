@@ -27,7 +27,7 @@ const seeingThingsCollection = defineCollection({
     location: z.string().optional(),
     note: z.string().optional(),
     spotifyTrack: z.object({
-      url: z.string().url(),
+      url: z.url(),
       title: z.string(),
     }).optional(),
   }),
