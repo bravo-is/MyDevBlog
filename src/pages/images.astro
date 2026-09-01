@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { seenThings } from '../lib/seen-things';
+import { seeingThings } from '../lib/seeing-things';
 
 const pageTitle = 'Seeing Things';
 
@@ -26,7 +26,7 @@ const spotifyEmbedUrl = (url: string) => {
     </header>
 
     <ol class="image-ledger">
-      {seenThings.map((entry, index) => {
+      {seeingThings.map((entry, index) => {
         const embedUrl = entry.spotifyTrack ? spotifyEmbedUrl(entry.spotifyTrack.url) : null;
         return (
           <li class="image-entry">
@@ -39,7 +39,7 @@ const spotifyEmbedUrl = (url: string) => {
               />
             </figure>
             <div class="image-entry-copy">
-              <p class="eyebrow">{entry.note ?? 'seen thing'}</p>
+              <p class="eyebrow">{entry.note ?? 'Seeing thing'}</p>
               <h2 class="font-display text-3xl font-bold leading-tight sm:text-4xl">{entry.title}</h2>
               {(entry.location || entry.paragraphs?.length) && (
                 <div class="space-y-4 text-lg leading-8 text-[color:var(--ink-muted)]">
