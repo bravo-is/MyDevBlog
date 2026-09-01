@@ -5,7 +5,13 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: netlify(),
+  adapter: netlify({
+    devFeatures: {
+      environmentVariables: false,
+      edgeFunctions: false,
+      images: true,
+    },
+  }),
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
