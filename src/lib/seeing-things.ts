@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 import windowReflection from '../assets/seen/window-reflection.jpg';
 import parallelRoad from '../assets/seen/tokyo-parallel-road.jpg';
 
-export type SeeingThing = {
+export type SeenThing = {
   title: string;
   image: ImageMetadata;
   alt: string;
@@ -15,7 +15,7 @@ export type SeeingThing = {
   };
 };
 
-export const seeingThings: SeeingThing[] = [
+export const seenThings: SeenThing[] = [
   {
     title: 'Stop and Reflect',
     image: windowReflection,
@@ -35,9 +35,9 @@ export const seeingThings: SeeingThing[] = [
     image: parallelRoad,
     alt: 'Parallel roads in Tokyo with cars and buildings.',
     location: 'Tokyo',
-    note: '',
+    note: 'Back and forth',
     paragraphs: [
-      '',
+      'The road pulls toward the vanishing point. Traffic pushes back, dense and immediate.',
     ],
     spotifyTrack: {
       url: 'https://open.spotify.com/track/44vJetDdcFOhZhgpk69P41?si=e1b0642c680c4991',
