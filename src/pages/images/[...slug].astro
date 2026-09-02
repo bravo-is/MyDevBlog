@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -34,11 +34,15 @@ const embedUrl = entry.data.spotifyTrack ? spotifyEmbedUrl(entry.data.spotifyTra
     </header>
 
     <figure class="image-frame mb-10">
-      <Image
+      <Picture
         class="w-full object-cover"
         src={entry.data.image}
         alt={entry.data.alt}
-        loading="eager"
+        formats={['avif', 'webp']}
+        fallbackFormat="jpg"
+        layout="constrained"
+        quality="high"
+        priority
       />
     </figure>
 

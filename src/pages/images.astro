@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -43,11 +43,15 @@ const spotifyEmbedUrl = (url: string) => {
           <li class="image-entry">
             <figure class="image-frame">
               <a href={`/images/${entry.id}/`} aria-label={`Open ${entry.data.title}`}>
-                <Image
+                <Picture
                   class="w-full object-cover"
                   src={entry.data.image}
                   alt={entry.data.alt}
-                  loading={index === 0 ? 'eager' : 'lazy'}
+                  formats={['avif', 'webp']}
+                  fallbackFormat="jpg"
+                  layout="constrained"
+                  quality="high"
+                  priority={index === 0}
                 />
               </a>
             </figure>
