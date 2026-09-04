@@ -55,6 +55,7 @@ const spotifyEmbedUrl = (url: string) => {
               <button
                 class="image-zoom-button"
                 type="button"
+                disabled
                 aria-label={`Enlarge ${entry.data.title}`}
                 data-lightbox-trigger
                 data-lightbox-src={entry.lightboxSrc}
@@ -69,6 +70,7 @@ const spotifyEmbedUrl = (url: string) => {
                   fallbackFormat="jpg"
                   layout="constrained"
                   quality="high"
+                  sizes="(min-width: 1024px) 760px, 100vw"
                   priority={index === 0}
                 />
               </button>
@@ -123,15 +125,23 @@ const spotifyEmbedUrl = (url: string) => {
         return;
       }
 
-      if (!window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)').matches) {
-        return;
-      }
-
       lightbox.dataset.bound = 'true';
+
+      const canUseLightbox = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
+      const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-lightbox-trigger]'));
+
+      const syncTriggers = () => {
+        triggers.forEach((trigger) => {
+          trigger.disabled = !canUseLightbox.matches;
+        });
+      };
 
       const closeLightbox = () => {
         lightbox.close();
       };
+
+      syncTriggers();
+      canUseLightbox.addEventListener('change', syncTriggers);
 
       document.addEventListener('click', (event) => {
         if (!(event.target instanceof Element)) {
@@ -140,7 +150,7 @@ const spotifyEmbedUrl = (url: string) => {
 
         const trigger = event.target.closest<HTMLButtonElement>('[data-lightbox-trigger]');
 
-        if (!trigger) {
+        if (!trigger || trigger.disabled || !canUseLightbox.matches) {
           return;
         }
 
