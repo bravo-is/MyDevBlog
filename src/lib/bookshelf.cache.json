@@ -360,7 +360,7 @@
       "bookUrl": "https://hardcover.app/books/the-millionaire-fast-lane",
       "dateAdded": "2026-08-12",
       "finishedAt": "2026-08-12",
-      "rating": null
+      "rating": 2
     },
     {
       "id": 631934,
@@ -462,5 +462,5 @@
       "rating": 4
     }
   ],
-  "lastUpdated": "2026-09-05T15:45:21.895Z"
+  "lastUpdated": "2026-09-05T21:32:04.765Z"
 }

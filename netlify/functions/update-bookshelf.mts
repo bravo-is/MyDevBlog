@@ -14,6 +14,11 @@ export default async () => {
   console.log(
     `Bookshelf blob updated: ${data.currentlyReading.length} currently reading, ${data.read.length} read.`,
   );
+  console.log(
+    `Metadata: ${data.currentlyReading.filter((book) => book.dateAdded).length} added dates, ` +
+    `${data.read.filter((book) => book.finishedAt).length} finished dates, ` +
+    `${data.read.filter((book) => book.rating != null).length} ratings`,
+  );
 };
 
 export const config: Config = {

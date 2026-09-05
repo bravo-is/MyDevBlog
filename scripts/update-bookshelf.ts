@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Fetch and cache Hardcover bookshelf data without relying on Vite-specific imports.
- * This script reads raw .gql files directly and writes a JSON cache.
+ * This script uses the shared Hardcover query/mapper and writes a JSON cache.
  *
  * Usage:
  *   npm run update:bookshelf
