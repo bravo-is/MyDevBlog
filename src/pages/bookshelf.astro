@@ -48,20 +48,17 @@ const MAX_VISIBLE_READ = 6;
         <div class="editorial-rule flex flex-wrap items-end justify-between gap-4 pt-5">
           <h2 class="font-display text-3xl font-bold">Read</h2>
           {bookshelf.read.length > 1 && (
-            <label class="flex items-center gap-2 text-sm font-bold text-[color:var(--ink-muted)]">
-              Sort
-              <select
-                id="read-sort"
-                class="border border-[color:var(--rule)] bg-[color:var(--paper-soft)] px-2 py-1 text-sm font-bold text-[color:var(--ink)]"
-              >
-                <option value="original">original</option>
-                <option value="finished-desc">finished newest</option>
-                <option value="finished-asc">finished oldest</option>
-                <option value="rating-desc">rating highest</option>
-                <option value="rating-asc">rating lowest</option>
-                <option value="title-asc">title A-Z</option>
-              </select>
-            </label>
+            <div class="book-sort" aria-label="Sort read books">
+              <span class="book-sort__label">Sort</span>
+              <div class="book-sort__group" role="group" aria-label="Sort field">
+                <button type="button" class="book-sort__option is-active" data-sort-key="finished" aria-pressed="true">Finished</button>
+                <button type="button" class="book-sort__option" data-sort-key="rating" aria-pressed="false">Rating</button>
+                <button type="button" class="book-sort__option" data-sort-key="title" aria-pressed="false">Title</button>
+              </div>
+              <button type="button" class="book-sort__order" id="read-sort-order" data-sort-direction="desc" aria-label="Sort descending" title="Sort descending">
+                ↓
+              </button>
+            </div>
           )}
         </div>
         {bookshelf.read.length === 0 ? (
@@ -96,10 +93,13 @@ const MAX_VISIBLE_READ = 6;
 <script>
   document.addEventListener("astro:page-load", () => {
     const toggleBtn = document.getElementById("read-toggle");
-    const sortSelect = document.getElementById("read-sort") as HTMLSelectElement | null;
+    const sortButtons = Array.from(document.querySelectorAll("[data-sort-key]")) as HTMLButtonElement[];
+    const sortOrderButton = document.getElementById("read-sort-order") as HTMLButtonElement | null;
     const readList = document.getElementById("read-list") as HTMLUListElement | null;
     
     let isExpanded = false;
+    let sortKey = "finished";
+    let sortDirection: "asc" | "desc" = "desc";
     const maxVisibleRead = 6;
     const readItems: HTMLElement[] = readList ? Array.from(readList.children) as HTMLElement[] : [];
 
@@ -114,8 +114,8 @@ const MAX_VISIBLE_READ = 6;
       });
     };
 
-    const compareText = (a: HTMLElement, b: HTMLElement, key: string) =>
-      (a.getAttribute(key) ?? "").localeCompare(b.getAttribute(key) ?? "", undefined, { sensitivity: "base" });
+    const compareText = (a: HTMLElement, b: HTMLElement, key: string, direction: 1 | -1) =>
+      direction * (a.getAttribute(key) ?? "").localeCompare(b.getAttribute(key) ?? "", undefined, { sensitivity: "base" });
 
     const compareDate = (a: HTMLElement, b: HTMLElement, direction: 1 | -1) => {
       const dateA = a.getAttribute("data-finished-at") || "";
@@ -127,33 +127,71 @@ const MAX_VISIBLE_READ = 6;
     };
 
     const compareRating = (a: HTMLElement, b: HTMLElement, direction: 1 | -1) => {
-      const ratingA = Number(a.getAttribute("data-rating"));
-      const ratingB = Number(b.getAttribute("data-rating"));
-      const hasA = Number.isFinite(ratingA);
-      const hasB = Number.isFinite(ratingB);
+      const rawRatingA = a.getAttribute("data-rating") || "";
+      const rawRatingB = b.getAttribute("data-rating") || "";
+      const ratingA = Number(rawRatingA);
+      const ratingB = Number(rawRatingB);
+      const hasA = rawRatingA !== "" && Number.isFinite(ratingA);
+      const hasB = rawRatingB !== "" && Number.isFinite(ratingB);
       if (!hasA && !hasB) return 0;
       if (!hasA) return 1;
       if (!hasB) return -1;
       return direction * (ratingA - ratingB);
     };
 
-    sortSelect?.addEventListener("change", () => {
+    const getOrderLabel = () => {
+      if (sortKey === "finished") return sortDirection === "desc" ? "Sort newest first" : "Sort oldest first";
+      if (sortKey === "rating") return sortDirection === "desc" ? "Sort highest first" : "Sort lowest first";
+      return sortDirection === "desc" ? "Sort A to Z" : "Sort Z to A";
+    };
+
+    const syncSortControls = () => {
+      sortButtons.forEach((button) => {
+        const isActive = button.dataset.sortKey === sortKey;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (!sortOrderButton) return;
+
+      sortOrderButton.textContent = sortDirection === "desc" ? "↓" : "↑";
+      sortOrderButton.setAttribute("aria-label", getOrderLabel());
+      sortOrderButton.setAttribute("title", getOrderLabel());
+      sortOrderButton.dataset.sortDirection = sortDirection;
+    };
+
+    const applySort = () => {
       if (!readList) return;
 
-      const sortMode = sortSelect.value;
       readItems.sort((a, b) => {
-        if (sortMode === "finished-desc") return compareDate(a, b, -1);
-        if (sortMode === "finished-asc") return compareDate(a, b, 1);
-        if (sortMode === "rating-desc") return compareRating(a, b, -1);
-        if (sortMode === "rating-asc") return compareRating(a, b, 1);
-        if (sortMode === "title-asc") return compareText(a, b, "data-title");
+        if (sortKey === "finished") return compareDate(a, b, sortDirection === "desc" ? -1 : 1);
+        if (sortKey === "rating") return compareRating(a, b, sortDirection === "desc" ? -1 : 1);
+        if (sortKey === "title") return compareText(a, b, "data-title", sortDirection === "desc" ? 1 : -1);
 
-        return Number(a.getAttribute("data-original-index")) - Number(b.getAttribute("data-original-index"));
+        return 0;
       });
 
       readItems.forEach((book) => readList.appendChild(book));
       applyVisibility();
+      syncSortControls();
+    };
+
+    sortButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextSortKey = button.dataset.sortKey ?? "finished";
+        if (sortKey !== nextSortKey) {
+          sortKey = nextSortKey;
+        }
+        applySort();
+      });
     });
+
+    sortOrderButton?.addEventListener("click", () => {
+      sortDirection = sortDirection === "desc" ? "asc" : "desc";
+      applySort();
+    });
+
+    applySort();
 
     if (!toggleBtn) return;
     

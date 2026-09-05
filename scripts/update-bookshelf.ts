@@ -25,6 +25,11 @@ async function main() {
     console.log(`Bookshelf cache updated: ${cacheFile}`);
     console.log(`Currently reading: ${data.currentlyReading.length}`);
     console.log(`Read: ${data.read.length}`);
+    console.log(
+      `Metadata: ${data.currentlyReading.filter((book) => book.dateAdded).length} added dates, ` +
+      `${data.read.filter((book) => book.finishedAt).length} finished dates, ` +
+      `${data.read.filter((book) => book.rating != null).length} ratings`,
+    );
     process.exit(0);
   } catch (error) {
     console.error('Error fetching bookshelf data:', error instanceof Error ? error.message : String(error));

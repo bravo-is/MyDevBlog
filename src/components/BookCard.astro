@@ -10,14 +10,15 @@ type Props = {
 
 const { book, className = '', shelf = 'read' } = Astro.props;
 
-const dateLabel =
+const dateTerm = shelf === 'current' ? 'Added' : 'Finished';
+const dateValue =
   shelf === 'current' && book.dateAdded
-    ? `Added ${formatBookDate(book.dateAdded)}`
+    ? formatBookDate(book.dateAdded)
     : shelf === 'read' && book.finishedAt
-      ? `Finished ${formatBookDate(book.finishedAt)}`
+      ? formatBookDate(book.finishedAt)
       : null;
 
-const ratingLabel = shelf === 'read' && book.rating != null ? `${book.rating.toFixed(1)} / 5` : null;
+const ratingLabel = shelf === 'read' && book.rating != null ? `${book.rating.toFixed(1)} / 5.0` : null;
 ---
 
 <li
@@ -41,11 +42,21 @@ const ratingLabel = shelf === 'read' && book.rating != null ? `${book.rating.toF
     )}
     <div class="space-y-2">
       <p class="font-display text-xl font-bold leading-8 text-[color:var(--ink)] sm:text-2xl sm:leading-9">{book.title}</p>
-      {(dateLabel || ratingLabel) && (
-        <div class="flex flex-wrap gap-x-3 gap-y-1 text-sm font-semibold text-[color:var(--ink-muted)]">
-          {dateLabel && <span>{dateLabel}</span>}
-          {ratingLabel && <span>{ratingLabel}</span>}
-        </div>
+      {(dateValue || ratingLabel) && (
+        <dl class="grid gap-1 text-sm font-semibold leading-5 text-[color:var(--ink-muted)]">
+          {dateValue && (
+            <div class="flex gap-2">
+              <dt class="min-w-16 text-[color:var(--ink)]">{dateTerm}</dt>
+              <dd>{dateValue}</dd>
+            </div>
+          )}
+          {ratingLabel && (
+            <div class="flex gap-2">
+              <dt class="min-w-16 text-[color:var(--ink)]">Rating</dt>
+              <dd>{ratingLabel}</dd>
+            </div>
+          )}
+        </dl>
       )}
     </div>
   </a>
