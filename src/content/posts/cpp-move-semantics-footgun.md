@@ -4,7 +4,7 @@ pubDate: 2026-02-24
 description: "How implicit moves copy raw pointers instead of transferring ownership, creating dangling pointer bugs."
 author: "Israel Bravo"
 image:
-    url: "/images/posts/C++-move-footgun.webp"
+    url: "/images/posts/cpp-move-footgun.webp"
     alt: "Diagram showing implicit move performing a shallow pointer copy"
 tags: ["C++", "memory-management", "move-semantics"]
 ---
