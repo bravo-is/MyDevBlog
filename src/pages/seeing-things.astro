@@ -123,6 +123,8 @@ const spotifyEmbedUrl = (url: string) => {
         return;
       }
 
+      const listenerController = new AbortController();
+      const { signal } = listenerController;
       const canUseLightbox = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
       const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-lightbox-trigger]'));
       const syncTriggers = () => {
@@ -132,7 +134,7 @@ const spotifyEmbedUrl = (url: string) => {
       };
 
       syncTriggers();
-      canUseLightbox.addEventListener('change', syncTriggers);
+      canUseLightbox.addEventListener('change', syncTriggers, { signal });
       lightbox.dataset.bound = 'true';
 
       const closeLightbox = () => {
@@ -155,25 +157,29 @@ const spotifyEmbedUrl = (url: string) => {
         lightboxCaption.textContent = trigger.dataset.lightboxLabel ?? '';
         lightbox.showModal();
         closeButton.focus();
-      });
+      }, { signal });
 
-      closeButton.addEventListener('click', closeLightbox);
+      closeButton.addEventListener('click', closeLightbox, { signal });
 
       lightbox.addEventListener('click', (event) => {
         if (event.target === lightbox) {
           closeLightbox();
         }
-      });
+      }, { signal });
 
       lightbox.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           closeLightbox();
         }
-      });
+      }, { signal });
 
       lightbox.addEventListener('close', () => {
         lightboxImage.removeAttribute('src');
-      });
+      }, { signal });
+
+      document.addEventListener('astro:before-swap', () => {
+        listenerController.abort();
+      }, { once: true, signal });
     };
 
     initImageLightbox();
