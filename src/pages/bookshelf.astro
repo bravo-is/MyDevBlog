@@ -38,23 +38,43 @@ const MAX_VISIBLE_READ = 6;
         ) : (
           <ul class="book-ledger">
             {bookshelf.currentlyReading.map((book) => (
-              <BookCard book={book} />
+              <BookCard book={book} shelf="current" />
             ))}
           </ul>
         )}
       </section>
 
       <section class="space-y-5">
-        <div class="editorial-rule pt-5">
+        <div class="editorial-rule flex flex-wrap items-end justify-between gap-4 pt-5">
           <h2 class="font-display text-3xl font-bold">Read</h2>
+          {bookshelf.read.length > 1 && (
+            <label class="flex items-center gap-2 text-sm font-bold text-[color:var(--ink-muted)]">
+              Sort
+              <select
+                id="read-sort"
+                class="border border-[color:var(--rule)] bg-[color:var(--paper-soft)] px-2 py-1 text-sm font-bold text-[color:var(--ink)]"
+              >
+                <option value="original">original</option>
+                <option value="finished-desc">finished newest</option>
+                <option value="finished-asc">finished oldest</option>
+                <option value="rating-desc">rating highest</option>
+                <option value="rating-asc">rating lowest</option>
+                <option value="title-asc">title A-Z</option>
+              </select>
+            </label>
+          )}
         </div>
         {bookshelf.read.length === 0 ? (
           <p class="text-[color:var(--ink-muted)]">No completed reads.</p>
         ) : (
           <>
-            <ul class="book-ledger">
+            <ul class="book-ledger" id="read-list">
               {bookshelf.read.map((book, index) => (
-                <BookCard book={book} className={index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''} />
+                <BookCard
+                  book={book}
+                  shelf="read"
+                  className={index >= MAX_VISIBLE_READ ? 'hidden extra-read-book' : ''}
+                />
               ))}
             </ul>
             {bookshelf.read.length > MAX_VISIBLE_READ && (
@@ -76,17 +96,70 @@ const MAX_VISIBLE_READ = 6;
 <script>
   document.addEventListener("astro:page-load", () => {
     const toggleBtn = document.getElementById("read-toggle");
-    if (!toggleBtn) return;
+    const sortSelect = document.getElementById("read-sort") as HTMLSelectElement | null;
+    const readList = document.getElementById("read-list") as HTMLUListElement | null;
     
     let isExpanded = false;
+    const maxVisibleRead = 6;
+    const readItems: HTMLElement[] = readList ? Array.from(readList.children) as HTMLElement[] : [];
+
+    readItems.forEach((book, index) => {
+      book.setAttribute("data-original-index", String(index));
+    });
+
+    const applyVisibility = () => {
+      readItems.forEach((book, index) => {
+        book.classList.toggle("hidden", !isExpanded && index >= maxVisibleRead);
+        book.classList.toggle("extra-read-book", index >= maxVisibleRead);
+      });
+    };
+
+    const compareText = (a: HTMLElement, b: HTMLElement, key: string) =>
+      (a.getAttribute(key) ?? "").localeCompare(b.getAttribute(key) ?? "", undefined, { sensitivity: "base" });
+
+    const compareDate = (a: HTMLElement, b: HTMLElement, direction: 1 | -1) => {
+      const dateA = a.getAttribute("data-finished-at") || "";
+      const dateB = b.getAttribute("data-finished-at") || "";
+      if (!dateA && !dateB) return 0;
+      if (!dateA) return 1;
+      if (!dateB) return -1;
+      return direction * dateA.localeCompare(dateB);
+    };
+
+    const compareRating = (a: HTMLElement, b: HTMLElement, direction: 1 | -1) => {
+      const ratingA = Number(a.getAttribute("data-rating"));
+      const ratingB = Number(b.getAttribute("data-rating"));
+      const hasA = Number.isFinite(ratingA);
+      const hasB = Number.isFinite(ratingB);
+      if (!hasA && !hasB) return 0;
+      if (!hasA) return 1;
+      if (!hasB) return -1;
+      return direction * (ratingA - ratingB);
+    };
+
+    sortSelect?.addEventListener("change", () => {
+      if (!readList) return;
+
+      const sortMode = sortSelect.value;
+      readItems.sort((a, b) => {
+        if (sortMode === "finished-desc") return compareDate(a, b, -1);
+        if (sortMode === "finished-asc") return compareDate(a, b, 1);
+        if (sortMode === "rating-desc") return compareRating(a, b, -1);
+        if (sortMode === "rating-asc") return compareRating(a, b, 1);
+        if (sortMode === "title-asc") return compareText(a, b, "data-title");
+
+        return Number(a.getAttribute("data-original-index")) - Number(b.getAttribute("data-original-index"));
+      });
+
+      readItems.forEach((book) => readList.appendChild(book));
+      applyVisibility();
+    });
+
+    if (!toggleBtn) return;
     
     toggleBtn.addEventListener("click", () => {
       isExpanded = !isExpanded;
-      const extraBooks = document.querySelectorAll(".extra-read-book");
-      
-      extraBooks.forEach(book => {
-        book.classList.toggle("hidden", !isExpanded);
-      });
+      applyVisibility();
       
       toggleBtn.textContent = isExpanded ? "show less" : "show all";
     });

@@ -1,15 +1,31 @@
 ---
 import type { BookshelfItem } from '../lib/hardcover';
+import { formatBookDate } from '../lib/dates';
 
 type Props = {
   book: BookshelfItem;
   className?: string;
+  shelf?: 'current' | 'read';
 };
 
-const { book, className = '' } = Astro.props;
+const { book, className = '', shelf = 'read' } = Astro.props;
+
+const dateLabel =
+  shelf === 'current' && book.dateAdded
+    ? `Added ${formatBookDate(book.dateAdded)}`
+    : shelf === 'read' && book.finishedAt
+      ? `Finished ${formatBookDate(book.finishedAt)}`
+      : null;
+
+const ratingLabel = shelf === 'read' && book.rating != null ? `${book.rating.toFixed(1)} / 5` : null;
 ---
 
-<li class={`border-b border-[color:var(--rule)] ${className}`.trim()}>
+<li
+  class={`border-b border-[color:var(--rule)] ${className}`.trim()}
+  data-title={book.title.toLocaleLowerCase()}
+  data-finished-at={book.finishedAt ?? ''}
+  data-rating={book.rating ?? ''}
+>
   <a href={book.bookUrl} target="_blank" rel="noopener noreferrer" class="grid grid-cols-[4.25rem_minmax(0,1fr)] items-center gap-4 py-4 hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)] sm:px-3">
     {book.coverUrl ? (
       <img
@@ -23,6 +39,14 @@ const { book, className = '' } = Astro.props;
         No cover
       </div>
     )}
-    <p class="font-display text-xl font-bold leading-8 text-[color:var(--ink)] sm:text-2xl sm:leading-9">{book.title}</p>
+    <div class="space-y-2">
+      <p class="font-display text-xl font-bold leading-8 text-[color:var(--ink)] sm:text-2xl sm:leading-9">{book.title}</p>
+      {(dateLabel || ratingLabel) && (
+        <div class="flex flex-wrap gap-x-3 gap-y-1 text-sm font-semibold text-[color:var(--ink-muted)]">
+          {dateLabel && <span>{dateLabel}</span>}
+          {ratingLabel && <span>{ratingLabel}</span>}
+        </div>
+      )}
+    </div>
   </a>
 </li>
