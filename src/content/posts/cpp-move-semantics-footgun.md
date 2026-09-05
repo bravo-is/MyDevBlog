@@ -6,6 +6,8 @@ author: "Israel Bravo"
 image:
     url: "/images/posts/cpp-move-footgun.webp"
     alt: "Diagram showing implicit move performing a shallow pointer copy"
+    width: 1200
+    height: 630
 tags: ["C++", "memory-management", "move-semantics"]
 ---
 

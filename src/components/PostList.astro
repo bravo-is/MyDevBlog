@@ -49,7 +49,9 @@ const postNumbers = new Map(
             <img
               src={post.data.image.url}
               alt={post.data.image.alt ?? ''}
-              class="blog-card-image aspect-[4/3] w-full border border-[color:var(--rule)] object-contain"
+              width={post.data.image.width}
+              height={post.data.image.height}
+              class="blog-card-image w-full border border-[color:var(--rule)] object-contain"
               loading="lazy"
             />
           )}
