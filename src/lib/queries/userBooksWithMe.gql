@@ -6,7 +6,18 @@ query UserBooksWithMe {
       limit: 200
       offset: 0
     ) {
+      id
       status_id
+      date_added
+      last_read_date
+      rating
+      user_book_reads(
+        order_by: { finished_at: desc_nulls_last }
+        limit: 1
+      ) {
+        started_at
+        finished_at
+      }
       book {
         id
         title

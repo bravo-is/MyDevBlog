@@ -4,61 +4,37 @@
       "id": 117535,
       "title": "Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life",
       "coverUrl": "https://assets.hardcover.app/edition/12646970/321e6c6b2d5c0d4af0ca2572d117120c18690bc6.jpeg",
-      "bookUrl": "https://hardcover.app/books/wherever-you-go-there-you-are"
-    },
-    {
-      "id": 442994,
-      "title": "The Tyranny of Merit: What's Become of the Common Good?",
-      "coverUrl": "https://assets.hardcover.app/external_data/50292360/00a186d8e15c88ede8310fc7a8bee02664b891f2.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-tyranny-of-merit"
-    },
-    {
-      "id": 445438,
-      "title": "A Very Stable Genius",
-      "coverUrl": "https://assets.hardcover.app/edition/30407108/content.jpeg",
-      "bookUrl": "https://hardcover.app/books/a-very-stable-genius"
-    },
-    {
-      "id": 464134,
-      "title": "Justice: What's the Right Thing to Do?",
-      "coverUrl": "https://assets.hardcover.app/edition/30381799/7b39aea068f968a8e9e41908d4d1c531ff1a2852.jpeg",
-      "bookUrl": "https://hardcover.app/books/justice"
+      "bookUrl": "https://hardcover.app/books/wherever-you-go-there-you-are",
+      "dateAdded": "2026-01-03",
+      "finishedAt": null,
+      "rating": null
     },
     {
       "id": 474876,
       "title": "Practicing the Power of Now: Essential Teachings, Meditations, and Exercises from the Power of Now",
       "coverUrl": "https://assets.hardcover.app/edition/30396073/2c6d67e2-67c3-40b2-819d-79cccbf14795.jpg",
-      "bookUrl": "https://hardcover.app/books/practicing-the-power-of-now"
-    },
-    {
-      "id": 825221,
-      "title": "Funny Story",
-      "coverUrl": "https://assets.hardcover.app/edition/31793459/55edc3794a561dd79aebbee7daabd1f98b317ace.jpeg",
-      "bookUrl": "https://hardcover.app/books/funny-story"
-    },
-    {
-      "id": 897503,
-      "title": "The Compassionate Mind",
-      "coverUrl": "https://assets.hardcover.app/external_data/60047223/ac2a9200e5bfbee51eb2a1c6de03e47e1b778ef7.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-compassionate-mind"
+      "bookUrl": "https://hardcover.app/books/practicing-the-power-of-now",
+      "dateAdded": "2026-07-06",
+      "finishedAt": null,
+      "rating": null
     },
     {
       "id": 1000945,
       "title": "The Expanding Circle: Ethics and Sociobiology",
       "coverUrl": "https://assets.hardcover.app/external_data/60162728/e732bb054fe526320e882dd187c7afe1dd9b901f.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-expanding-circle-ethics-and-sociobiology"
+      "bookUrl": "https://hardcover.app/books/the-expanding-circle-ethics-and-sociobiology",
+      "dateAdded": "2026-07-06",
+      "finishedAt": null,
+      "rating": null
     },
     {
       "id": 1499716,
       "title": "Philosophy as a Way of Life: History, Dimensions, Directions",
       "coverUrl": "https://assets.hardcover.app/edition/31552519/3e4239d47a14e1f145e34e1a3ae10296096268a8.jpeg",
-      "bookUrl": "https://hardcover.app/books/philosophy-as-a-way-of-life-history-dimensions-directions"
-    },
-    {
-      "id": 2081882,
-      "title": "Logic",
-      "coverUrl": "https://assets.hardcover.app/external_data/1268906/e678046e3c1b36acb25b4ced54d7b49b87d02cc6.jpeg",
-      "bookUrl": "https://hardcover.app/books/logic-1980"
+      "bookUrl": "https://hardcover.app/books/philosophy-as-a-way-of-life-history-dimensions-directions",
+      "dateAdded": "2026-08-12",
+      "finishedAt": null,
+      "rating": null
     }
   ],
   "read": [
@@ -66,272 +42,425 @@
       "id": 333,
       "title": "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East",
       "coverUrl": "https://assets.hardcover.app/external_data/29355459/025882451a93ef7f5e69081c9c9c7c76ccd386fb.jpeg",
-      "bookUrl": "https://hardcover.app/books/lawrence-in-arabia"
+      "bookUrl": "https://hardcover.app/books/lawrence-in-arabia",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 4
     },
     {
       "id": 16256,
       "title": "Waking Up: A Guide to Spirituality Without Religion",
       "coverUrl": "https://assets.hardcover.app/edition/30399542/ec40fca7d6bcd59b5392a96be702bb2c39736db3.jpeg",
-      "bookUrl": "https://hardcover.app/books/waking-up-a-guide-to-spirituality-without-religion"
+      "bookUrl": "https://hardcover.app/books/waking-up-a-guide-to-spirituality-without-religion",
+      "dateAdded": "2020-09-08",
+      "finishedAt": null,
+      "rating": 5
     },
     {
       "id": 32073,
       "title": "Flatland: A Romance of Many Dimensions",
       "coverUrl": "https://assets.hardcover.app/external_data/3248161/8b98529f9b8a4bde2fe925942e27cc5bf013749d.jpeg",
-      "bookUrl": "https://hardcover.app/books/flatland"
+      "bookUrl": "https://hardcover.app/books/flatland",
+      "dateAdded": "2017-04-06",
+      "finishedAt": "2017-04-06",
+      "rating": 4
     },
     {
       "id": 39192,
       "title": "The Sun Also Rises",
       "coverUrl": "https://assets.hardcover.app/editions/26368002/7943617386022284.jpg",
-      "bookUrl": "https://hardcover.app/books/the-sun-also-rises"
-    },
-    {
-      "id": 65518,
-      "title": "Slapstick, or Lonesome No More!",
-      "coverUrl": "https://assets.hardcover.app/edition/28759279/fb569605093ac27d58a7c0a349656c8bc518b870.jpeg",
-      "bookUrl": "https://hardcover.app/books/slapstick-or-lonesome-no-more-or-lonesome-no-more-1976"
+      "bookUrl": "https://hardcover.app/books/the-sun-also-rises",
+      "dateAdded": "2024-12-13",
+      "finishedAt": "2024-12-12",
+      "rating": 2.5
     },
     {
       "id": 111023,
       "title": "Fire and Fury: Inside the Trump White House",
       "coverUrl": "https://assets.hardcover.app/edition/30399450/64ae9919a2902d4157ca11d99c61525389cddcd0.jpeg",
-      "bookUrl": "https://hardcover.app/books/fire-and-fury"
+      "bookUrl": "https://hardcover.app/books/fire-and-fury",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 122240,
       "title": "Slaughterhouse-Five",
       "coverUrl": "https://assets.hardcover.app/edition/17079379/6cd33f6e07aae9f2a3f5299de4fe48c07571dd66.jpeg",
-      "bookUrl": "https://hardcover.app/books/slaughterhouse-five"
+      "bookUrl": "https://hardcover.app/books/slaughterhouse-five",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 5
     },
     {
       "id": 172305,
       "title": "The Deficit Myth: Modern Monetary Theory and the Birth of the People's Economy",
       "coverUrl": "https://assets.hardcover.app/external_data/3834799/f48e6c3fdeb5907e8665d2c8403790c376f93991.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-deficit-myth"
+      "bookUrl": "https://hardcover.app/books/the-deficit-myth",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3
     },
     {
       "id": 177754,
       "title": "The Gambler",
       "coverUrl": "https://assets.hardcover.app/external_data/40705256/d0d71b8265383a2cfbb9ce5d6a6f506ca637a1be.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-gambler"
+      "bookUrl": "https://hardcover.app/books/the-gambler",
+      "dateAdded": "2020-09-08",
+      "finishedAt": null,
+      "rating": 3
     },
     {
       "id": 247482,
       "title": "Contagious: Why Things Catch On",
       "coverUrl": "https://assets.hardcover.app/edition/4326720/b08f2a130e1d1e3cffd24b2f0d07562a93e0a76f.jpeg",
-      "bookUrl": "https://hardcover.app/books/contagious"
+      "bookUrl": "https://hardcover.app/books/contagious",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2.5
     },
     {
       "id": 264765,
       "title": "Free Will",
       "coverUrl": "https://assets.hardcover.app/edition/30401321/328e507cefbfc21e0623b3d0b0e8c2ef3ab3665d.jpeg",
-      "bookUrl": "https://hardcover.app/books/free-will"
+      "bookUrl": "https://hardcover.app/books/free-will",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 3.5
     },
     {
       "id": 270618,
       "title": "An Astronaut's Guide to Life on Earth",
       "coverUrl": "https://assets.hardcover.app/edition/6099306/8247379750ce88f41ebb9918f52ae7623745ede0.jpeg",
-      "bookUrl": "https://hardcover.app/books/an-astronauts-guide-to-life-on-earth"
+      "bookUrl": "https://hardcover.app/books/an-astronauts-guide-to-life-on-earth",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 3.5
     },
     {
       "id": 273657,
       "title": "The Life You Can Save: How to Do Your Part to End World Poverty",
       "coverUrl": "https://assets.hardcover.app/edition/15781629/8a492b5e2210462c8cb47df3a62f368294b69112.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-life-you-can-save"
+      "bookUrl": "https://hardcover.app/books/the-life-you-can-save",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3
     },
     {
       "id": 274620,
       "title": "Breakfast of Champions",
       "coverUrl": "https://assets.hardcover.app/editions/8338232/1627766390142986.jpg",
-      "bookUrl": "https://hardcover.app/books/breakfast-of-champions"
+      "bookUrl": "https://hardcover.app/books/breakfast-of-champions",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 306986,
       "title": "Deep Work: Rules for Focused Success in a Distracted World",
       "coverUrl": "https://assets.hardcover.app/external_data/43295845/f4a8749dd530cd3f34b4cb00d225aca590487218.jpeg",
-      "bookUrl": "https://hardcover.app/books/deep-work"
+      "bookUrl": "https://hardcover.app/books/deep-work",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 1
     },
     {
       "id": 375938,
       "title": "Fahrenheit 451",
       "coverUrl": "https://assets.hardcover.app/edition/6336191/3d353406f14fd36043a8bdfb8c3288f90ee4f96c.jpeg",
-      "bookUrl": "https://hardcover.app/books/fahrenheit-451"
+      "bookUrl": "https://hardcover.app/books/fahrenheit-451",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2
     },
     {
       "id": 427315,
       "title": "Cat's Cradle",
       "coverUrl": "https://assets.hardcover.app/edition/32794786/6985d5d6-29c1-44ba-b303-36fd50b12b6c.jpg",
-      "bookUrl": "https://hardcover.app/books/cats-cradle"
+      "bookUrl": "https://hardcover.app/books/cats-cradle",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 427444,
       "title": "Four Thousand Weeks: Time and How to Use It",
       "coverUrl": "https://assets.hardcover.app/edition/30455079/b336540f0267efbbd708b24934817f227d660666.jpeg",
-      "bookUrl": "https://hardcover.app/books/four-thousand-weeks-time-and-how-to-use-it-2021"
+      "bookUrl": "https://hardcover.app/books/four-thousand-weeks-time-and-how-to-use-it-2021",
+      "dateAdded": "2025-12-15",
+      "finishedAt": "2026-01-03",
+      "rating": 2
     },
     {
       "id": 429195,
       "title": "Soonish",
       "coverUrl": "https://assets.hardcover.app/edition/30404396/10097090-L.jpg",
-      "bookUrl": "https://hardcover.app/books/soonish"
+      "bookUrl": "https://hardcover.app/books/soonish",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3
     },
     {
       "id": 433144,
       "title": "The Sirens of Titan",
       "coverUrl": "https://assets.hardcover.app/edition/32794789/b072d9af-106b-4178-bffc-2f32aafa1f2c.jpg",
-      "bookUrl": "https://hardcover.app/books/the-sirens-of-titan"
+      "bookUrl": "https://hardcover.app/books/the-sirens-of-titan",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 434204,
       "title": "Conscious: A Brief Guide to the Fundamental Mystery of the Mind",
       "coverUrl": "https://assets.hardcover.app/external_data/59383999/c34e54e155fcf23786f87900cbb89a645a41305a.jpeg",
-      "bookUrl": "https://hardcover.app/books/conscious"
+      "bookUrl": "https://hardcover.app/books/conscious",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 4
     },
     {
       "id": 435434,
       "title": "Notes from Underground, White Nights, The Dream of a Ridiculous Man, and Selections from The House of the Dead",
       "coverUrl": "https://assets.hardcover.app/external_data/39839767/74946b35c5d48c94b63cb95abf5e87cd7e2bca38.jpeg",
-      "bookUrl": "https://hardcover.app/books/notes-from-underground-white-nights-the-dream-of-a-ridiculous-man-and-selections-from-the-house-of-the-dead"
+      "bookUrl": "https://hardcover.app/books/notes-from-underground-white-nights-the-dream-of-a-ridiculous-man-and-selections-from-the-house-of-the-dead",
+      "dateAdded": "2020-09-08",
+      "finishedAt": "2020-08-01",
+      "rating": 2
     },
     {
       "id": 441336,
       "title": "Homo Deus: A Brief History of Tomorrow",
       "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
-      "bookUrl": "https://hardcover.app/books/homo-deus"
+      "bookUrl": "https://hardcover.app/books/homo-deus",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 441419,
       "title": "On Having No Head: Zen and the Rediscovery of the Obvious",
       "coverUrl": "https://assets.hardcover.app/external_data/43302761/57897f0de4f404d889137e8a5196ca8bc86b72ef.jpeg",
-      "bookUrl": "https://hardcover.app/books/on-having-no-head"
+      "bookUrl": "https://hardcover.app/books/on-having-no-head",
+      "dateAdded": "2020-09-08",
+      "finishedAt": null,
+      "rating": 5
     },
     {
       "id": 441443,
       "title": "Islam and the Future of Tolerance: A Dialogue",
       "coverUrl": "https://assets.hardcover.app/edition/31862867/13da05ae-5236-40c0-b81d-39d723f27fce.jpg",
-      "bookUrl": "https://hardcover.app/books/islam-and-the-future-of-tolerance-a-dialogue"
+      "bookUrl": "https://hardcover.app/books/islam-and-the-future-of-tolerance-a-dialogue",
+      "dateAdded": "2025-12-07",
+      "finishedAt": "2025-12-07",
+      "rating": 3.5
     },
     {
       "id": 441473,
-      "title": "The Most Good You Can Do",
-      "coverUrl": "https://assets.hardcover.app/edition/21361135/9256001-L.jpg",
-      "bookUrl": "https://hardcover.app/books/the-most-good-you-can-do"
+      "title": "The Most Good You Can Do: How Effective Altruism Is Changing Ideas About Living Ethically",
+      "coverUrl": "https://assets.hardcover.app/edition/21361135/b77c4422da43a0ba0034fee64a0386859cc11935.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-most-good-you-can-do",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3
+    },
+    {
+      "id": 442994,
+      "title": "The Tyranny of Merit: What's Become of the Common Good?",
+      "coverUrl": "https://assets.hardcover.app/external_data/50292360/00a186d8e15c88ede8310fc7a8bee02664b891f2.jpeg",
+      "bookUrl": "https://hardcover.app/books/the-tyranny-of-merit",
+      "dateAdded": "2026-01-12",
+      "finishedAt": "2026-08-31",
+      "rating": 3
     },
     {
       "id": 443052,
       "title": "At the Existentialist Café: Freedom, Being, and Apricot Cocktails",
       "coverUrl": "https://assets.hardcover.app/edition/24678009/10302540-L.jpg",
-      "bookUrl": "https://hardcover.app/books/at-the-existentialist-cafe"
+      "bookUrl": "https://hardcover.app/books/at-the-existentialist-cafe",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 3
+    },
+    {
+      "id": 464134,
+      "title": "Justice: What's the Right Thing to Do?",
+      "coverUrl": "https://assets.hardcover.app/edition/30381799/7b39aea068f968a8e9e41908d4d1c531ff1a2852.jpeg",
+      "bookUrl": "https://hardcover.app/books/justice",
+      "dateAdded": "2026-08-12",
+      "finishedAt": "2026-08-31",
+      "rating": 5
     },
     {
       "id": 469783,
       "title": "Crime and Punishment",
       "coverUrl": "https://assets.hardcover.app/edition/11223468/295861-L.jpg",
-      "bookUrl": "https://hardcover.app/books/crime-and-punishment"
+      "bookUrl": "https://hardcover.app/books/crime-and-punishment",
+      "dateAdded": "2020-09-08",
+      "finishedAt": "2024-07-24",
+      "rating": 3.5
     },
     {
       "id": 470383,
       "title": "What Does It All Mean?",
       "coverUrl": "https://assets.hardcover.app/external_data/61602104/cc53084364f8c1125d410d5b418d291247dd80ec.jpeg",
-      "bookUrl": "https://hardcover.app/books/what-does-it-all-mean-1987"
+      "bookUrl": "https://hardcover.app/books/what-does-it-all-mean-1987",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2
     },
     {
       "id": 483910,
       "title": "The Working Life",
       "coverUrl": "https://assets.hardcover.app/edition/30424395/605262-L.jpg",
-      "bookUrl": "https://hardcover.app/books/the-working-life"
+      "bookUrl": "https://hardcover.app/books/the-working-life",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 3.5
     },
     {
       "id": 488783,
       "title": "Making Sense",
       "coverUrl": "https://assets.hardcover.app/external_data/60105775/40693dbf7ea32346c8c9197596a7127ec199cac5.jpeg",
-      "bookUrl": "https://hardcover.app/books/making-sense-2020"
+      "bookUrl": "https://hardcover.app/books/making-sense-2020",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 3.5
     },
     {
       "id": 499673,
       "title": "Mindwandering",
       "coverUrl": "https://assets.hardcover.app/edition/30449260/content.jpeg",
-      "bookUrl": "https://hardcover.app/books/mindwandering"
+      "bookUrl": "https://hardcover.app/books/mindwandering",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2.5
     },
     {
       "id": 529099,
       "title": "Brain Food",
       "coverUrl": "https://assets.hardcover.app/edition/30532152/35457267._SX98_.jpg",
-      "bookUrl": "https://hardcover.app/books/brain-food-how-to-eat-smart-and-sharpen-your-mind"
+      "bookUrl": "https://hardcover.app/books/brain-food-how-to-eat-smart-and-sharpen-your-mind",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2.5
     },
     {
       "id": 530467,
       "title": "Death",
       "coverUrl": "https://assets.hardcover.app/edition/30485388/content.jpeg",
-      "bookUrl": "https://hardcover.app/books/death-888ce77f-86a0-48f7-975f-905a841e98e6"
+      "bookUrl": "https://hardcover.app/books/death-888ce77f-86a0-48f7-975f-905a841e98e6",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 4
     },
     {
       "id": 580958,
       "title": "The Millionaire Fast Lane",
       "coverUrl": "https://assets.hardcover.app/external_data/59615137/eb60e5b91915c3c566930c24f8abe3e4674eddc9.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-millionaire-fast-lane"
+      "bookUrl": "https://hardcover.app/books/the-millionaire-fast-lane",
+      "dateAdded": "2026-08-12",
+      "finishedAt": "2026-08-12",
+      "rating": 2
     },
     {
       "id": 631934,
       "title": "Brainstorms",
       "coverUrl": "https://assets.hardcover.app/edition/30608728/180fb07728f8f8ae29da3c43fbf8385b88915d00.jpeg",
-      "bookUrl": "https://hardcover.app/books/brainstorms"
+      "bookUrl": "https://hardcover.app/books/brainstorms",
+      "dateAdded": "2025-01-01",
+      "finishedAt": "2025-01-01",
+      "rating": 2.5
     },
     {
       "id": 730514,
       "title": "Overlord (Light Novel), Vol. 1: The Undead King",
       "coverUrl": "https://assets.hardcover.app/edition/30560881/8c9e8263-d693-4ad6-9d25-86250e0138a8.jpg",
-      "bookUrl": "https://hardcover.app/books/overlord-light-novel-vol-1"
+      "bookUrl": "https://hardcover.app/books/overlord-light-novel-vol-1",
+      "dateAdded": "2025-01-05",
+      "finishedAt": "2025-01-17",
+      "rating": 4
     },
     {
       "id": 839334,
       "title": "America Through Foreign Eyes",
       "coverUrl": "https://assets.hardcover.app/external_data/59991261/144c2447041b41b7957d7fdbdcb92f3358caff21.jpeg",
-      "bookUrl": "https://hardcover.app/books/america-through-foreign-eyes"
+      "bookUrl": "https://hardcover.app/books/america-through-foreign-eyes",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-11-28",
+      "rating": 3
     },
     {
       "id": 853315,
       "title": "Going Infinite: The Rise and Fall of a New Tycoon",
       "coverUrl": "https://assets.hardcover.app/edition/32891895/c0cd364b-319e-4e43-b593-74e7c9bb1b8f.jpg",
-      "bookUrl": "https://hardcover.app/books/going-infinite"
+      "bookUrl": "https://hardcover.app/books/going-infinite",
+      "dateAdded": "2025-12-15",
+      "finishedAt": "2025-12-21",
+      "rating": 3.5
     },
     {
       "id": 881308,
       "title": "Psych: The Story of the Human Mind",
       "coverUrl": "https://assets.hardcover.app/external_data/60029181/0051862208774b65b1491e7aee95c6a872582e97.jpeg",
-      "bookUrl": "https://hardcover.app/books/psych-the-story-of-the-human-mind"
+      "bookUrl": "https://hardcover.app/books/psych-the-story-of-the-human-mind",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 4
     },
     {
       "id": 931339,
       "title": "How Are We to Live?",
       "coverUrl": "https://assets.hardcover.app/external_data/60085192/fbe176e29e73fb459d940c6bed67265f0418926c.jpeg",
-      "bookUrl": "https://hardcover.app/books/how-are-we-to-live"
+      "bookUrl": "https://hardcover.app/books/how-are-we-to-live",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 1284543,
       "title": "Why Vegan?: Eating Ethically",
       "coverUrl": "https://assets.hardcover.app/external_data/60423847/2f68aee2b6bd0ea4aa292620f18f7d987a7c8090.jpeg",
-      "bookUrl": "https://hardcover.app/books/why-vegan-eating-ethically"
+      "bookUrl": "https://hardcover.app/books/why-vegan-eating-ethically",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 3.5
     },
     {
       "id": 1474779,
       "title": "Flourish",
       "coverUrl": "https://assets.hardcover.app/edition/31520966/95a3e983d75a6cc2a7d1df46cbf7020400680897.jpeg",
-      "bookUrl": "https://hardcover.app/books/flourish-2023"
+      "bookUrl": "https://hardcover.app/books/flourish-2023",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-10-31",
+      "rating": 2.5
     },
     {
       "id": 1832758,
       "title": "Notes on Being a Man",
       "coverUrl": "https://assets.hardcover.app/editions/31960168/184fed59-a493-4c2e-bd52-0a3f964415bd.jpg",
-      "bookUrl": "https://hardcover.app/books/notes-on-being-a-man"
+      "bookUrl": "https://hardcover.app/books/notes-on-being-a-man",
+      "dateAdded": "2026-07-06",
+      "finishedAt": "2026-07-28",
+      "rating": 2.5
     },
     {
       "id": 1869465,
       "title": "The Bomb in My Garden",
       "coverUrl": "https://assets.hardcover.app/external_data/315664/b7aa37b09ab063083154079f603a2a2c818d6292.jpeg",
-      "bookUrl": "https://hardcover.app/books/the-bomb-in-my-garden"
+      "bookUrl": "https://hardcover.app/books/the-bomb-in-my-garden",
+      "dateAdded": "2025-05-05",
+      "finishedAt": "2025-05-13",
+      "rating": 4
+    },
+    {
+      "id": 2615085,
+      "title": "Slapstick, or Lonesome No More!",
+      "coverUrl": "https://assets.hardcover.app/edition/28759279/fb569605093ac27d58a7c0a349656c8bc518b870.jpeg",
+      "bookUrl": "https://hardcover.app/books/slapstick-or-lonesome-no-more-or-lonesome-no-more-a-novel-1976",
+      "dateAdded": "2024-09-28",
+      "finishedAt": "2024-09-28",
+      "rating": 4
     }
   ],
-  "lastUpdated": "2026-08-12T22:41:19.736Z"
+  "lastUpdated": "2026-09-05T21:32:04.765Z"
 }

@@ -1,0 +1,49 @@
+---
+---
+
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress__bar"></div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const progress = document.querySelector<HTMLElement>('.scroll-progress');
+    const bar = progress?.querySelector<HTMLElement>('.scroll-progress__bar');
+
+    if (!progress || !bar || progress.getAttribute('data-scroll-bound') === 'true') {
+      return;
+    }
+
+    progress.setAttribute('data-scroll-bound', 'true');
+
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const scale = scrollable > 0 ? Math.max(0, Math.min(window.scrollY / scrollable, 1)) : 0;
+
+      progress.classList.toggle('scroll-progress--visible', window.scrollY > 200);
+      bar.style.transform = `scaleX(${scale})`;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  });
+</script>
+
+<style>
+  .scroll-progress {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .scroll-progress--visible {
+    opacity: 1;
+  }
+
+  .scroll-progress__bar {
+    height: 0.25rem;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+</style>

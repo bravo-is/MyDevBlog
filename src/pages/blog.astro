@@ -23,7 +23,56 @@ const pageTitle = "My Blog";
                 Technical explainers, recapitulations of books and articles, and a catalog of my own thoughts.
             </p>
         </header>
-        <Tags />
+        <div class="flex flex-wrap items-end justify-between gap-4">
+            <Tags />
+            <div class="blog-sort" aria-label="Sort blog posts">
+                <span class="book-sort__label">Sort</span>
+                <button type="button" class="book-sort__order" id="blog-sort-order" data-sort-direction="desc" aria-label="Sort newest first" title="Sort newest first">
+                    ↓
+                </button>
+            </div>
+        </div>
         <PostList posts={allPosts} />
     </section>
 </BaseLayout>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const sortOrderButton = document.getElementById("blog-sort-order") as HTMLButtonElement | null;
+        const postList = document.getElementById("blog-post-list") as HTMLUListElement | null;
+        const postItems: HTMLElement[] = postList ? Array.from(postList.children) as HTMLElement[] : [];
+        let sortDirection: "asc" | "desc" = "desc";
+
+        const syncSortControl = () => {
+            if (!sortOrderButton) return;
+
+            const label = sortDirection === "desc" ? "Sort newest first" : "Sort oldest first";
+            sortOrderButton.textContent = sortDirection === "desc" ? "↓" : "↑";
+            sortOrderButton.dataset.sortDirection = sortDirection;
+            sortOrderButton.setAttribute("aria-label", label);
+            sortOrderButton.setAttribute("title", label);
+        };
+
+        const applySort = () => {
+            if (!postList) return;
+
+            postItems.sort((a, b) => {
+                const dateA = a.getAttribute("data-pub-date") || "";
+                const dateB = b.getAttribute("data-pub-date") || "";
+                return sortDirection === "desc"
+                    ? dateB.localeCompare(dateA)
+                    : dateA.localeCompare(dateB);
+            });
+
+            postItems.forEach((post) => postList.appendChild(post));
+            syncSortControl();
+        };
+
+        sortOrderButton?.addEventListener("click", () => {
+            sortDirection = sortDirection === "desc" ? "asc" : "desc";
+            applySort();
+        });
+
+        syncSortControl();
+    });
+</script>

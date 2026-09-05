@@ -13,6 +13,13 @@ export type HardcoverUserBook = {
   id?: number;
   book?: HardcoverBook | null;
   status_id: number;
+  date_added?: string | null;
+  last_read_date?: string | null;
+  rating?: number | string | null;
+  user_book_reads?: {
+    started_at?: string | null;
+    finished_at?: string | null;
+  }[];
 };
 
 export type HardcoverResponse<TData> = {
@@ -25,6 +32,9 @@ export type BookshelfItem = {
   title: string;
   coverUrl: string | null;
   bookUrl: string;
+  dateAdded?: string | null;
+  finishedAt?: string | null;
+  rating?: number | null;
 };
 
 export type BookshelfData = {
@@ -56,7 +66,18 @@ query UserBooksWithMe {
       limit: 200
       offset: 0
     ) {
+      id
       status_id
+      date_added
+      last_read_date
+      rating
+      user_book_reads(
+        order_by: { finished_at: desc_nulls_last }
+        limit: 1
+      ) {
+        started_at
+        finished_at
+      }
       book {
         id
         title
@@ -115,12 +136,17 @@ const mapUserBooks = (books: HardcoverUserBook[] | undefined): BookshelfItem[] =
     const bookUrl = book?.slug
       ? `https://hardcover.app/books/${book.slug}`
       : 'https://hardcover.app/home';
+    const rating = entry.rating === null || entry.rating === undefined ? null : Number(entry.rating);
+    const latestFinishedAt = entry.user_book_reads?.find((read) => read.finished_at)?.finished_at ?? null;
 
     return {
       id: book?.id ?? 0,
       title,
       coverUrl,
       bookUrl,
+      dateAdded: entry.date_added ?? null,
+      finishedAt: entry.last_read_date ?? latestFinishedAt,
+      rating: Number.isFinite(rating) ? rating : null,
     };
   });
 };
