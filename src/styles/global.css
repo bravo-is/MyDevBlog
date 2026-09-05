@@ -39,7 +39,7 @@
   --rule: rgba(244, 237, 220, 0.28);
   --sage: var(--olive);
   --ochre: #e1bd5c;
-  --accent: var(--maroon);
+  --accent: #e07164;
   --ink-offset: color-mix(in srgb, var(--ink) 18%, transparent);
   --lightbox-scrim: color-mix(in srgb, black 60%, transparent);
 }
