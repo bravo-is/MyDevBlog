@@ -10,4 +10,5 @@ spotifyTrack:
   title: Spotify track for Pause and Reflect
 ---
 
-A bustling city, cars, and hurried people. All of us occupying the same thin plane.
+A bustling city, cars, and hurried people. All of us occupying the same thin
+plane.
