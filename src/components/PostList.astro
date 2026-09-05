@@ -7,19 +7,29 @@ interface Props {
 }
 
 const { posts } = Astro.props;
+
+const postNumbers = new Map(
+  [...posts]
+    .sort((a, b) => a.data.pubDate.getTime() - b.data.pubDate.getTime())
+    .map((post, index) => [post.id, String(index + 1).padStart(2, '0')]),
+);
 ---
 
-<ul class="grid border-t border-[color:var(--rule)]">
-  {posts.map((post, index) => (
-    <li class="group border-b border-[color:var(--rule)]">
-      <a href={`/posts/${post.id}/`} class="grid gap-5 py-6 transition-colors hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)_9rem] sm:px-4">
+<ul class="grid border-t border-[color:var(--rule)]" id="blog-post-list">
+  {posts.map((post) => (
+    <li
+      class="group border-b border-[color:var(--rule)]"
+      data-pub-date={postDateTime(post.data.pubDate)}
+      data-title={post.data.title.toLocaleLowerCase()}
+    >
+      <a href={`/posts/${post.id}/`} class="grid gap-5 py-6 transition-colors hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)] sm:px-4 lg:grid-cols-[5rem_minmax(0,1fr)_16rem]">
         <p class="font-display text-4xl font-bold leading-none text-[color:var(--accent)]">
-          {String(index + 1).padStart(2, '0')}
+          {postNumbers.get(post.id)}
         </p>
         <article class="space-y-3">
           <div class="flex flex-wrap gap-2">
             {post.data.tags.slice(0, 3).map((tag) => (
-              <span class="text-sm font-bold text-[color:var(--accent)]">
+              <span class="blog-card-tag text-sm font-bold text-[color:var(--accent)]">
                 {tag}
               </span>
             ))}
@@ -31,9 +41,19 @@ const { posts } = Astro.props;
             {post.data.description}
           </p>
         </article>
-        <time datetime={postDateTime(post.data.pubDate)} class="text-sm font-semibold text-[color:var(--ink-muted)] sm:text-right">
-          {formatPostDate(post.data.pubDate)}
-        </time>
+        <div class="grid content-start gap-3 sm:col-start-2 lg:col-start-3">
+          <time datetime={postDateTime(post.data.pubDate)} class="text-sm font-semibold text-[color:var(--ink-muted)] lg:text-right">
+            {formatPostDate(post.data.pubDate)}
+          </time>
+          {post.data.image?.url && (
+            <img
+              src={post.data.image.url}
+              alt={post.data.image.alt ?? ''}
+              class="blog-card-image w-full border border-[color:var(--rule)] object-contain"
+              loading="lazy"
+            />
+          )}
+        </div>
       </a>
     </li>
   ))}
