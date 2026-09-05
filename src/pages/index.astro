@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import selfImage from '../assets/homepage-portrait.jpg';
 const pageTitle = "Home Page";
 ---
@@ -30,7 +30,7 @@ const pageTitle = "Home Page";
 					<span class="eyebrow">Paper trail</span>
 					<span class="index-title font-display text-3xl font-bold">Bookshelf</span>
 				</a>
-				<a href="/images" class="index-row">
+				<a href="/seeing-things" class="index-row">
 					<span class="eyebrow">Look twice</span>
 					<span class="index-title font-display text-3xl font-bold">Seeing Things</span>
 				</a>
@@ -38,7 +38,16 @@ const pageTitle = "Home Page";
 		</div>
 
 		<aside class="border border-[color:var(--ink)] bg-[color:var(--paper-soft)] p-4">
-			<Image class="aspect-[3/4] w-full object-cover object-center" src={selfImage} alt="Israel Bravo" />
+			<Picture
+				class="aspect-[3/4] w-full object-cover object-center"
+				src={selfImage}
+				alt="Israel Bravo"
+				formats={['avif', 'webp']}
+				fallbackFormat="jpg"
+				layout="constrained"
+				quality="high"
+				priority
+			/>
 			<div class="mt-4 flex items-start justify-between gap-4 border-t border-[color:var(--rule)] pt-4">
 				<p class="font-display text-2xl font-bold leading-none">Israel Bravo</p>
 				<p class="max-w-36 text-right text-sm italic text-[color:var(--ink-muted)]">circa 2026</p>

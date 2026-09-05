@@ -13,18 +13,18 @@ const { posts } = Astro.props;
   {posts.map((post, index) => (
     <li class="group border-b border-[color:var(--rule)]">
       <a href={`/posts/${post.id}/`} class="grid gap-5 py-6 transition-colors hover:bg-[color:var(--paper-soft)] sm:grid-cols-[5rem_minmax(0,1fr)_9rem] sm:px-4">
-        <p class="font-display text-4xl font-bold leading-none text-[color:var(--rust)]">
+        <p class="font-display text-4xl font-bold leading-none text-[color:var(--accent)]">
           {String(index + 1).padStart(2, '0')}
         </p>
         <article class="space-y-3">
           <div class="flex flex-wrap gap-2">
             {post.data.tags.slice(0, 3).map((tag) => (
-              <span class="text-sm font-bold text-[color:var(--sage)]">
+              <span class="text-sm font-bold text-[color:var(--accent)]">
                 {tag}
               </span>
             ))}
           </div>
-          <h2 class="font-display text-3xl font-bold leading-tight decoration-[color:var(--rust)] underline-offset-4 group-hover:underline sm:text-4xl">
+          <h2 class="font-display text-3xl font-bold leading-tight decoration-[color:var(--accent)] underline-offset-4 group-hover:underline sm:text-4xl">
             {post.data.title}
           </h2>
           <p class="max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)]">
