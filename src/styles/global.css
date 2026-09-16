@@ -108,14 +108,6 @@ a {
   color: var(--accent);
 }
 
-:root.dark .eyebrow {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--maroon) 82%, var(--ink));
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.2em;
-}
-
 .editorial-rule {
   border-top: 1px solid var(--rule);
   position: relative;
@@ -466,15 +458,6 @@ a {
 .tag-chip:focus-visible {
   color: var(--ink);
   background: color-mix(in srgb, var(--ochre) 22%, var(--paper-soft));
-}
-
-:root.dark .blog-card-tag,
-:root.dark .quote-source {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--maroon) 82%, var(--ink));
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.2em;
 }
 
 :root.dark .post-tag-chip {
