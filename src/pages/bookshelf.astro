@@ -101,14 +101,10 @@ const MAX_VISIBLE_READ = 6;
     let sortKey = "finished";
     let sortDirection: "asc" | "desc" = "desc";
     const maxVisibleRead = 6;
-    const readItems: HTMLElement[] = readList ? Array.from(readList.children) as HTMLElement[] : [];
-
-    readItems.forEach((book, index) => {
-      book.setAttribute("data-original-index", String(index));
-    });
+    const getReadItems = () => readList ? Array.from(readList.children) as HTMLElement[] : [];
 
     const applyVisibility = () => {
-      readItems.forEach((book, index) => {
+      getReadItems().forEach((book, index) => {
         book.classList.toggle("hidden", !isExpanded && index >= maxVisibleRead);
         book.classList.toggle("extra-read-book", index >= maxVisibleRead);
       });
@@ -163,6 +159,8 @@ const MAX_VISIBLE_READ = 6;
     const applySort = () => {
       if (!readList) return;
 
+      // Read the current cards on each click instead of sorting a startup snapshot.
+      const readItems = getReadItems();
       readItems.sort((a, b) => {
         if (sortKey === "finished") return compareDate(a, b, sortDirection === "desc" ? -1 : 1);
         if (sortKey === "rating") return compareRating(a, b, sortDirection === "desc" ? -1 : 1);
