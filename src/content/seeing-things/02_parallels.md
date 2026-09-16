@@ -10,4 +10,5 @@ spotifyTrack:
   title: Spotify track for Parallels
 ---
 
-The road pulls toward the vanishing point. Traffic pushes back, dense and immediate.
+The road pulls toward the vanishing point. Traffic pushes back, dense and
+immediate.
